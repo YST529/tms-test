@@ -1,16 +1,16 @@
 <template>
-  <PageWrapper content="基于el-scrollbar" title="滚动组件函数示例">
+  <PageWrapper title="滚动组件函数示例" content="基于el-scrollbar">
     <div class="my-4">
-      <a-button class="mr-2" @click="scrollTo(100)"> 滚动到100px位置 </a-button>
-      <a-button class="mr-2" @click="scrollTo(800)"> 滚动到800px位置 </a-button>
-      <a-button class="mr-2" @click="scrollTo(0)"> 滚动到顶部 </a-button>
-      <a-button class="mr-2" @click="scrollBottom()"> 滚动到底部 </a-button>
+      <a-button @click="scrollTo(100)" class="mr-2"> 滚动到100px位置 </a-button>
+      <a-button @click="scrollTo(800)" class="mr-2"> 滚动到800px位置 </a-button>
+      <a-button @click="scrollTo(0)" class="mr-2"> 滚动到顶部 </a-button>
+      <a-button @click="scrollBottom()" class="mr-2"> 滚动到底部 </a-button>
     </div>
     <div class="scroll-wrap">
-      <ScrollContainer ref="scrollRef" class="mt-4">
+      <ScrollContainer class="mt-4" ref="scrollRef">
         <ul class="p-3">
           <template v-for="index in 100" :key="index">
-            <li :style="{ border: '1px solid #eee' }" class="p-2">
+            <li class="p-2" :style="{ border: '1px solid #eee' }">
               {{ index }}
             </li>
           </template>

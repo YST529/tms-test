@@ -3,9 +3,9 @@
  * @Description: logo component
 -->
 <template>
-  <div :class="getAppLogoClass" class="anticon" @click="goHome">
+  <div class="anticon" :class="getAppLogoClass" @click="goHome">
     <img src="../../../assets/images/logo.png" />
-    <div v-show="showTitle" :class="getTitleClass" class="ml-2 truncate md:opacity-100">
+    <div class="ml-2 truncate md:opacity-100" :class="getTitleClass" v-show="showTitle">
       {{ title }}
     </div>
   </div>

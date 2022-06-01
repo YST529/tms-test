@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper content="支持带参数多tab缓存" title="带参数标签页">
+  <PageWrapper title="带参数标签页" content="支持带参数多tab缓存">
     Current Param : {{ params }}
     <br />
     Keep Alive

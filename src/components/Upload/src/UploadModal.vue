@@ -1,36 +1,36 @@
 <template>
   <BasicModal
-    :cancelButtonProps="{ disabled: isUploadingRef }"
-    :closeFunc="handleCloseFunc"
-    :keyboard="false"
-    :maskClosable="false"
-    :okButtonProps="getOkButtonProps"
-    :okText="t('component.upload.save')"
-    :title="t('component.upload.upload')"
-    class="upload-modal"
-    v-bind="$attrs"
     width="800px"
-    @ok="handleOk"
+    :title="t('component.upload.upload')"
+    :okText="t('component.upload.save')"
+    v-bind="$attrs"
     @register="register"
+    @ok="handleOk"
+    :closeFunc="handleCloseFunc"
+    :maskClosable="false"
+    :keyboard="false"
+    class="upload-modal"
+    :okButtonProps="getOkButtonProps"
+    :cancelButtonProps="{ disabled: isUploadingRef }"
   >
     <template #centerFooter>
       <a-button
+        @click="handleStartUpload"
+        color="success"
         :disabled="!getIsSelectFile"
         :loading="isUploadingRef"
-        color="success"
-        @click="handleStartUpload"
       >
         {{ getUploadBtnText }}
       </a-button>
     </template>
 
     <div class="upload-modal-toolbar">
-      <Alert :message="getHelpText" banner class="upload-modal-toolbar__text" type="info" />
+      <Alert :message="getHelpText" type="info" banner class="upload-modal-toolbar__text" />
 
       <Upload
         :accept="getStringAccept"
-        :before-upload="beforeUpload"
         :multiple="multiple"
+        :before-upload="beforeUpload"
         :show-upload-list="false"
         class="upload-modal-toolbar__btn"
       >
@@ -39,7 +39,7 @@
         </a-button>
       </Upload>
     </div>
-    <FileList :actionColumn="actionColumn" :columns="columns" :dataSource="fileListRef" />
+    <FileList :dataSource="fileListRef" :columns="columns" :actionColumn="actionColumn" />
   </BasicModal>
 </template>
 <script lang="ts">

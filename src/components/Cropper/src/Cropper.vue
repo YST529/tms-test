@@ -3,9 +3,9 @@
     <img
       v-show="isReady"
       ref="imgElRef"
+      :src="src"
       :alt="alt"
       :crossorigin="crossorigin"
-      :src="src"
       :style="getImageStyle"
     />
   </div>

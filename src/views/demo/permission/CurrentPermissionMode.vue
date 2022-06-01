@@ -4,7 +4,7 @@
     <a-button type="link">
       {{ permissionMode === PermissionModeEnum.BACK ? '后台权限模式' : '前端角色权限模式' }}
     </a-button>
-    <a-button class="ml-4" type="primary" @click="togglePermissionMode"> 切换权限模式 </a-button>
+    <a-button class="ml-4" @click="togglePermissionMode" type="primary"> 切换权限模式 </a-button>
     <Divider />
   </div>
 </template>

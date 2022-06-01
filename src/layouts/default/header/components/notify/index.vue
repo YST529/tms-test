@@ -1,7 +1,7 @@
 <template>
   <div :class="prefixCls">
-    <Popover :overlayClassName="`${prefixCls}__overlay`" title="" trigger="click">
-      <Badge :count="count" :numberStyle="numberStyle" dot>
+    <Popover title="" trigger="click" :overlayClassName="`${prefixCls}__overlay`">
+      <Badge :count="count" dot :numberStyle="numberStyle">
         <BellOutlined />
       </Badge>
       <template #content>
@@ -13,8 +13,8 @@
                 <span v-if="item.list.length !== 0">({{ item.list.length }})</span>
               </template>
               <!-- 绑定title-click事件的通知列表中标题是“可点击”的-->
-              <NoticeList v-if="item.key === '1'" :list="item.list" @title-click="onNoticeClick" />
-              <NoticeList v-else :list="item.list" />
+              <NoticeList :list="item.list" v-if="item.key === '1'" @title-click="onNoticeClick" />
+              <NoticeList :list="item.list" v-else />
             </TabPane>
           </template>
         </Tabs>

@@ -1,5 +1,5 @@
 <template>
-  <vue-json-pretty :data="data" :deep="3" :path="'res'" :showLength="true" />
+  <vue-json-pretty :path="'res'" :deep="3" :showLength="true" :data="data" />
 </template>
 
 <script lang="ts" setup>

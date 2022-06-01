@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper content="支持多级参数" title="带参数菜单（路由）">
+  <PageWrapper title="带参数菜单（路由）" content="支持多级参数">
     当前参数：{{ params }}
     <br />
     输入参数切换路由：

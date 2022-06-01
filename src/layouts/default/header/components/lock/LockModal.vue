@@ -1,14 +1,14 @@
 <template>
   <BasicModal
-    :class="prefixCls"
     :footer="null"
     :title="t('layout.header.lockScreen')"
     v-bind="$attrs"
+    :class="prefixCls"
     @register="register"
   >
     <div :class="`${prefixCls}__entry`">
       <div :class="`${prefixCls}__header`">
-        <img :class="`${prefixCls}__header-img`" :src="avatar" />
+        <img :src="avatar" :class="`${prefixCls}__header-img`" />
         <p :class="`${prefixCls}__header-name`">
           {{ getRealName }}
         </p>
@@ -17,7 +17,7 @@
       <BasicForm @register="registerForm" />
 
       <div :class="`${prefixCls}__footer`">
-        <a-button block class="mt-2" type="primary" @click="handleLock">
+        <a-button type="primary" block class="mt-2" @click="handleLock">
           {{ t('layout.header.lockScreenBtn') }}
         </a-button>
       </div>

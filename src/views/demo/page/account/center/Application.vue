@@ -4,9 +4,9 @@
       <template v-for="item in list" :key="item.title">
         <a-col :span="6">
           <ListItem>
-            <Card :class="`${prefixCls}__card`" :hoverable="true">
+            <Card :hoverable="true" :class="`${prefixCls}__card`">
               <div :class="`${prefixCls}__card-title`">
-                <Icon v-if="item.icon" :color="item.color" :icon="item.icon" class="icon" />
+                <Icon class="icon" v-if="item.icon" :icon="item.icon" :color="item.color" />
                 {{ item.title }}
               </div>
               <div :class="`${prefixCls}__card-num`">
@@ -16,8 +16,8 @@
                 新增用户：<span>{{ item.new }}</span>
               </div>
               <Icon
-                v-if="item.download"
                 :class="`${prefixCls}__card-download`"
+                v-if="item.download"
                 :icon="item.download"
               />
             </Card>

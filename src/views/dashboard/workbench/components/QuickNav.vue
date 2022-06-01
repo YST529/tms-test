@@ -2,7 +2,7 @@
   <Card title="快捷导航" v-bind="$attrs">
     <CardGrid v-for="item in navItems" :key="item">
       <span class="flex flex-col items-center">
-        <Icon :color="item.color" :icon="item.icon" size="20" />
+        <Icon :icon="item.icon" :color="item.color" size="20" />
         <span class="text-md mt-2">{{ item.title }}</span>
       </span>
     </CardGrid>

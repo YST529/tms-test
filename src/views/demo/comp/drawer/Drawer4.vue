@@ -1,5 +1,5 @@
 <template>
-  <BasicDrawer title="Drawer Title" v-bind="$attrs" width="50%" @register="register">
+  <BasicDrawer v-bind="$attrs" @register="register" title="Drawer Title" width="50%">
     <div>
       <BasicForm @register="registerForm" />
     </div>

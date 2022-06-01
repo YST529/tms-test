@@ -10,7 +10,7 @@
     </BasicTitle>
     <div :class="`${prefixCls}__action`">
       <slot name="action"></slot>
-      <BasicArrow v-if="canExpan" :expand="show" up @click="$emit('expand')" />
+      <BasicArrow v-if="canExpan" up :expand="show" @click="$emit('expand')" />
     </div>
   </div>
 </template>

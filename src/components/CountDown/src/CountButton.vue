@@ -1,5 +1,5 @@
 <template>
-  <Button :disabled="isStart" :loading="loading" v-bind="$attrs" @click="handleStart">
+  <Button v-bind="$attrs" :disabled="isStart" @click="handleStart" :loading="loading">
     {{ getButtonText }}
   </Button>
 </template>

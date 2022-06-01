@@ -1,24 +1,24 @@
 <template>
-  <a-list :class="prefixCls" :pagination="getPagination" bordered>
+  <a-list :class="prefixCls" bordered :pagination="getPagination">
     <template v-for="item in getData" :key="item.id">
       <a-list-item class="list-item">
         <a-list-item-meta>
           <template #title>
             <div class="title">
               <a-typography-paragraph
-                :content="item.title"
+                @click="handleTitleClick(item)"
+                style="width: 100%; margin-bottom: 0 !important"
+                :style="{ cursor: isTitleClickable ? 'pointer' : '' }"
                 :delete="!!item.titleDelete"
                 :ellipsis="
                   $props.titleRows && $props.titleRows > 0
                     ? { rows: $props.titleRows, tooltip: !!item.title }
                     : false
                 "
-                :style="{ cursor: isTitleClickable ? 'pointer' : '' }"
-                style="width: 100%; margin-bottom: 0 !important"
-                @click="handleTitleClick(item)"
+                :content="item.title"
               />
-              <div v-if="item.extra" class="extra">
-                <a-tag :color="item.color" class="tag">
+              <div class="extra" v-if="item.extra">
+                <a-tag class="tag" :color="item.color">
                   {{ item.extra }}
                 </a-tag>
               </div>
@@ -26,21 +26,21 @@
           </template>
 
           <template #avatar>
-            <a-avatar v-if="item.avatar" :src="item.avatar" class="avatar" />
+            <a-avatar v-if="item.avatar" class="avatar" :src="item.avatar" />
             <span v-else> {{ item.avatar }}</span>
           </template>
 
           <template #description>
             <div>
-              <div v-if="item.description" class="description">
+              <div class="description" v-if="item.description">
                 <a-typography-paragraph
-                  :content="item.description"
+                  style="width: 100%; margin-bottom: 0 !important"
                   :ellipsis="
                     $props.descRows && $props.descRows > 0
                       ? { rows: $props.descRows, tooltip: !!item.description }
                       : false
                   "
-                  style="width: 100%; margin-bottom: 0 !important"
+                  :content="item.description"
                 />
               </div>
               <div class="datetime">

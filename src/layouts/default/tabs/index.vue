@@ -1,12 +1,12 @@
 <template>
   <div :class="getWrapClass">
     <Tabs
-      :activeKey="activeKeyRef"
+      type="editable-card"
+      size="small"
       :animated="false"
       :hideAdd="true"
       :tabBarGutter="3"
-      size="small"
-      type="editable-card"
+      :activeKey="activeKeyRef"
       @change="handleChange"
       @edit="handleEdit"
     >
@@ -18,9 +18,9 @@
         </TabPane>
       </template>
 
-      <template v-if="getShowRedo || getShowQuick" #rightExtra>
+      <template #rightExtra v-if="getShowRedo || getShowQuick">
         <TabRedo v-if="getShowRedo" />
-        <TabContent v-if="getShowQuick" :tabItem="$route" isExtra />
+        <TabContent isExtra :tabItem="$route" v-if="getShowQuick" />
         <FoldButton v-if="getShowFold" />
       </template>
     </Tabs>

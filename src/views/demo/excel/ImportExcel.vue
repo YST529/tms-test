@@ -1,14 +1,14 @@
 <template>
   <PageWrapper title="excel数据导入示例">
-    <ImpExcel dateFormat="YYYY-MM-DD" @success="loadDataSuccess">
+    <ImpExcel @success="loadDataSuccess" dateFormat="YYYY-MM-DD">
       <a-button class="m-3"> 导入Excel </a-button>
     </ImpExcel>
     <BasicTable
       v-for="(table, index) in tableListRef"
       :key="index"
+      :title="table.title"
       :columns="table.columns"
       :dataSource="table.dataSource"
-      :title="table.title"
     />
   </PageWrapper>
 </template>

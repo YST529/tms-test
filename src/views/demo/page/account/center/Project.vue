@@ -4,7 +4,7 @@
       <template v-for="item in list" :key="item.title">
         <a-col :span="6">
           <ListItem>
-            <Card :class="`${prefixCls}__card`" :hoverable="true">
+            <Card :hoverable="true" :class="`${prefixCls}__card`">
               <img :src="demoImg" />
               <div :class="`${prefixCls}__card-title`">
                 {{ item.title }}

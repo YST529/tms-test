@@ -3,7 +3,7 @@
     {{ getTitle }}
   </EditTableHeaderCell>
   <span v-else>{{ getTitle }}</span>
-  <BasicHelp v-if="getHelpMessage" :class="`${prefixCls}__help`" :text="getHelpMessage" />
+  <BasicHelp v-if="getHelpMessage" :text="getHelpMessage" :class="`${prefixCls}__help`" />
 </template>
 <script lang="ts">
   import type { PropType } from 'vue';

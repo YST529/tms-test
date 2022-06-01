@@ -1,6 +1,6 @@
 <template>
   <Modal v-bind="getBindValue" @cancel="handleCancel">
-    <template v-if="!$slots.closeIcon" #closeIcon>
+    <template #closeIcon v-if="!$slots.closeIcon">
       <ModalClose
         :canFullscreen="getProps.canFullscreen"
         :fullScreen="fullScreenRef"
@@ -9,7 +9,7 @@
       />
     </template>
 
-    <template v-if="!$slots.title" #title>
+    <template #title v-if="!$slots.title">
       <ModalHeader
         :helpMessage="getProps.helpMessage"
         :title="getMergeProps.title"
@@ -17,25 +17,25 @@
       />
     </template>
 
-    <template v-if="!$slots.footer" #footer>
-      <ModalFooter v-bind="getBindValue" @cancel="handleCancel" @ok="handleOk">
-        <template v-for="item in Object.keys($slots)" #[item]="data">
+    <template #footer v-if="!$slots.footer">
+      <ModalFooter v-bind="getBindValue" @ok="handleOk" @cancel="handleCancel">
+        <template #[item]="data" v-for="item in Object.keys($slots)">
           <slot :name="item" v-bind="data || {}"></slot>
         </template>
       </ModalFooter>
     </template>
 
     <ModalWrapper
-      ref="modalWrapperRef"
+      :useWrapper="getProps.useWrapper"
       :footerOffset="wrapperFooterOffset"
       :fullScreen="fullScreenRef"
-      :height="getWrapperHeight"
+      ref="modalWrapperRef"
       :loading="getProps.loading"
       :loading-tip="getProps.loadingTip"
       :minHeight="getProps.minHeight"
-      :modalFooterHeight="footer !== undefined && !footer ? 0 : undefined"
-      :useWrapper="getProps.useWrapper"
+      :height="getWrapperHeight"
       :visible="visibleRef"
+      :modalFooterHeight="footer !== undefined && !footer ? 0 : undefined"
       v-bind="omit(getProps.wrapperProps, 'visible', 'height', 'modalFooterHeight')"
       @ext-height="handleExtHeight"
       @height-change="handleHeightChange"
@@ -43,7 +43,7 @@
       <slot></slot>
     </ModalWrapper>
 
-    <template v-for="item in Object.keys(omit($slots, 'default'))" #[item]="data">
+    <template #[item]="data" v-for="item in Object.keys(omit($slots, 'default'))">
       <slot :name="item" v-bind="data || {}"></slot>
     </template>
   </Modal>

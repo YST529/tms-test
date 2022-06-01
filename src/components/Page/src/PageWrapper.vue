@@ -1,24 +1,24 @@
 <template>
-  <div ref="wrapperRef" :class="getClass">
+  <div :class="getClass" ref="wrapperRef">
     <PageHeader
-      v-if="getShowHeader"
-      ref="headerRef"
       :ghost="ghost"
       :title="title"
       v-bind="omit($attrs, 'class')"
+      ref="headerRef"
+      v-if="getShowHeader"
     >
       <template #default>
         <template v-if="content">
           {{ content }}
         </template>
-        <slot v-else name="headerContent"></slot>
+        <slot name="headerContent" v-else></slot>
       </template>
-      <template v-for="item in getHeaderSlots" #[item]="data">
+      <template #[item]="data" v-for="item in getHeaderSlots">
         <slot :name="item" v-bind="data || {}"></slot>
       </template>
     </PageHeader>
 
-    <div ref="contentRef" :class="getContentClass" :style="getContentStyle" class="overflow-hidden">
+    <div class="overflow-hidden" :class="getContentClass" :style="getContentStyle" ref="contentRef">
       <slot></slot>
     </div>
 

@@ -1,6 +1,6 @@
 <template>
-  <li :class="getClass" :style="getCollapse ? {} : getItemStyle" @click.stop="handleClickItem">
-    <Tooltip v-if="showTooptip" placement="right">
+  <li :class="getClass" @click.stop="handleClickItem" :style="getCollapse ? {} : getItemStyle">
+    <Tooltip placement="right" v-if="showTooptip">
       <template #title>
         <slot name="title"></slot>
       </template>

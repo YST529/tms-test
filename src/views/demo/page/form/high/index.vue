@@ -1,16 +1,16 @@
 <template>
   <PageWrapper
     class="high-form"
-    content=" 高级表单常见于一次性输入和提交大批量数据的场景。"
     title="高级表单"
+    content=" 高级表单常见于一次性输入和提交大批量数据的场景。"
   >
-    <a-card :bordered="false" title="仓库管理">
+    <a-card title="仓库管理" :bordered="false">
       <BasicForm @register="register" />
     </a-card>
-    <a-card :bordered="false" class="!mt-5" title="任务管理">
+    <a-card title="任务管理" :bordered="false" class="!mt-5">
       <BasicForm @register="registerTask" />
     </a-card>
-    <a-card :bordered="false" title="成员管理">
+    <a-card title="成员管理" :bordered="false">
       <PersonTable ref="tableRef" />
     </a-card>
 

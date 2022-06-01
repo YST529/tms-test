@@ -1,11 +1,11 @@
 <template>
   <BasicDrawer
-    :title="getTitle"
-    showFooter
     v-bind="$attrs"
+    @register="registerDrawer"
+    showFooter
+    :title="getTitle"
     width="50%"
     @ok="handleSubmit"
-    @register="registerDrawer"
   >
     <BasicForm @register="registerForm" />
   </BasicDrawer>

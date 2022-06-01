@@ -1,11 +1,11 @@
 <template>
   <PageWrapper title="水印示例">
     <CollapseContainer class="w-full h-32 bg-white rounded-md" title="Global WaterMark">
-      <a-button class="mr-2" type="primary" @click="setWatermark('WaterMark Info')">
+      <a-button type="primary" class="mr-2" @click="setWatermark('WaterMark Info')">
         Create
       </a-button>
-      <a-button class="mr-2" color="error" @click="clear"> Clear </a-button>
-      <a-button class="mr-2" color="warning" @click="setWatermark('WaterMark Info New')">
+      <a-button color="error" class="mr-2" @click="clear"> Clear </a-button>
+      <a-button color="warning" class="mr-2" @click="setWatermark('WaterMark Info New')">
         Reset
       </a-button>
     </CollapseContainer>

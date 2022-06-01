@@ -2,6 +2,7 @@
   <div :class="prefixCls">
     <template v-for="color in colorList || []" :key="color">
       <span
+        @click="handleClick(color)"
         :class="[
           `${prefixCls}__item`,
           {
@@ -9,7 +10,6 @@
           },
         ]"
         :style="{ background: color }"
-        @click="handleClick(color)"
       >
         <CheckOutlined />
       </span>

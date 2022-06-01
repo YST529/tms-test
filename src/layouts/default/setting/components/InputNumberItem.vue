@@ -2,9 +2,9 @@
   <div :class="prefixCls">
     <span> {{ title }}</span>
     <InputNumber
-      :class="`${prefixCls}-input-number`"
-      size="small"
       v-bind="$attrs"
+      size="small"
+      :class="`${prefixCls}-input-number`"
       @change="handleChange"
     />
   </div>

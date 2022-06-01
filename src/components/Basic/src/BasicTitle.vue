@@ -1,7 +1,7 @@
 <template>
   <span :class="getClass">
     <slot></slot>
-    <BasicHelp v-if="helpMessage" :class="`${prefixCls}-help`" :text="helpMessage" />
+    <BasicHelp :class="`${prefixCls}-help`" v-if="helpMessage" :text="helpMessage" />
   </span>
 </template>
 <script lang="ts" setup>

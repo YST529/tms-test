@@ -2,15 +2,15 @@
   <PageWrapper title="动画组件示例">
     <div class="flex">
       <Select
-        v-model:value="value"
         :options="options"
-        :style="{ width: '150px' }"
+        v-model:value="value"
         placeholder="选择动画"
+        :style="{ width: '150px' }"
       />
-      <a-button class="ml-4" type="primary" @click="start"> start </a-button>
+      <a-button type="primary" class="ml-4" @click="start"> start </a-button>
     </div>
     <component :is="`${value}Transition`">
-      <div v-show="show" class="box"></div>
+      <div class="box" v-show="show"></div>
     </component>
   </PageWrapper>
 </template>

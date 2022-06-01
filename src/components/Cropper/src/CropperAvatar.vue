@@ -3,28 +3,28 @@
     <div :class="`${prefixCls}-image-wrapper`" :style="getImageWrapperStyle" @click="openModal">
       <div :class="`${prefixCls}-image-mask`" :style="getImageWrapperStyle">
         <Icon
+          icon="ant-design:cloud-upload-outlined"
           :size="getIconWidth"
           :style="getImageWrapperStyle"
           color="#d6d6d6"
-          icon="ant-design:cloud-upload-outlined"
         />
       </div>
-      <img v-if="sourceValue" :src="sourceValue" alt="avatar" />
+      <img :src="sourceValue" v-if="sourceValue" alt="avatar" />
     </div>
     <a-button
-      v-if="showBtn"
       :class="`${prefixCls}-upload-btn`"
-      v-bind="btnProps"
       @click="openModal"
+      v-if="showBtn"
+      v-bind="btnProps"
     >
       {{ btnText ? btnText : t('component.cropper.selectImage') }}
     </a-button>
 
     <CopperModal
-      :src="sourceValue"
-      :uploadApi="uploadApi"
       @register="register"
       @upload-success="handleUploadSuccess"
+      :uploadApi="uploadApi"
+      :src="sourceValue"
     />
   </div>
 </template>

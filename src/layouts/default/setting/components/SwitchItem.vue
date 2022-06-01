@@ -2,11 +2,11 @@
   <div :class="prefixCls">
     <span> {{ title }}</span>
     <Switch
-      :checkedChildren="t('layout.setting.on')"
-      :disabled="disabled"
-      :unCheckedChildren="t('layout.setting.off')"
       v-bind="getBindValue"
       @change="handleChange"
+      :disabled="disabled"
+      :checkedChildren="t('layout.setting.on')"
+      :unCheckedChildren="t('layout.setting.off')"
     />
   </div>
 </template>

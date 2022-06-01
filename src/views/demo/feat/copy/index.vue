@@ -2,7 +2,7 @@
   <PageWrapper title="文本复制示例">
     <CollapseContainer class="w-full h-32 bg-white rounded-md" title="Copy Example">
       <div class="flex justify-center">
-        <a-input v-model:value="value" placeholder="请输入" />
+        <a-input placeholder="请输入" v-model:value="value" />
         <a-button type="primary" @click="handleCopy"> Copy </a-button>
       </div>
     </CollapseContainer>

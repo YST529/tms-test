@@ -4,17 +4,17 @@
       <span>{{ t('component.table.settingColumn') }}</span>
     </template>
     <Popover
-      :getPopupContainer="getPopupContainer"
-      :overlayClassName="`${prefixCls}__cloumn-list`"
       placement="bottomLeft"
       trigger="click"
       @visible-change="handleVisibleChange"
+      :overlayClassName="`${prefixCls}__cloumn-list`"
+      :getPopupContainer="getPopupContainer"
     >
       <template #title>
         <div :class="`${prefixCls}__popover-title`">
           <Checkbox
-            v-model:checked="checkAll"
             :indeterminate="indeterminate"
+            v-model:checked="checkAll"
             @change="onCheckAllChange"
           >
             {{ t('component.table.settingColumnShow') }}
@@ -26,8 +26,8 @@
 
           <Checkbox
             v-model:checked="checkSelect"
-            :disabled="!defaultRowSelection"
             @change="handleSelectCheckChange"
+            :disabled="!defaultRowSelection"
           >
             {{ t('component.table.settingSelectColumnShow') }}
           </Checkbox>
@@ -40,23 +40,24 @@
 
       <template #content>
         <ScrollContainer>
-          <CheckboxGroup ref="columnListRef" v-model:value="checkedList" @change="onChange">
+          <CheckboxGroup v-model:value="checkedList" @change="onChange" ref="columnListRef">
             <template v-for="item in plainOptions" :key="item.value">
-              <div v-if="!('ifShow' in item && !item.ifShow)" :class="`${prefixCls}__check-item`">
+              <div :class="`${prefixCls}__check-item`" v-if="!('ifShow' in item && !item.ifShow)">
                 <DragOutlined class="table-column-drag-icon" />
                 <Checkbox :value="item.value">
                   {{ item.label }}
                 </Checkbox>
 
                 <Tooltip
-                  :getPopupContainer="getPopupContainer"
-                  :mouseLeaveDelay="0.4"
                   placement="bottomLeft"
+                  :mouseLeaveDelay="0.4"
+                  :getPopupContainer="getPopupContainer"
                 >
                   <template #title>
                     {{ t('component.table.settingFixedLeft') }}
                   </template>
                   <Icon
+                    icon="line-md:arrow-align-left"
                     :class="[
                       `${prefixCls}__fixed-left`,
                       {
@@ -64,20 +65,20 @@
                         disabled: !checkedList.includes(item.value),
                       },
                     ]"
-                    icon="line-md:arrow-align-left"
                     @click="handleColumnFixed(item, 'left')"
                   />
                 </Tooltip>
                 <Divider type="vertical" />
                 <Tooltip
-                  :getPopupContainer="getPopupContainer"
-                  :mouseLeaveDelay="0.4"
                   placement="bottomLeft"
+                  :mouseLeaveDelay="0.4"
+                  :getPopupContainer="getPopupContainer"
                 >
                   <template #title>
                     {{ t('component.table.settingFixedRight') }}
                   </template>
                   <Icon
+                    icon="line-md:arrow-align-left"
                     :class="[
                       `${prefixCls}__fixed-right`,
                       {
@@ -85,7 +86,6 @@
                         disabled: !checkedList.includes(item.value),
                       },
                     ]"
-                    icon="line-md:arrow-align-left"
                     @click="handleColumnFixed(item, 'right')"
                   />
                 </Tooltip>

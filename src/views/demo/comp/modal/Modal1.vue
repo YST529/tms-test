@@ -1,14 +1,14 @@
 <template>
   <BasicModal
-    :helpMessage="['提示1', '提示2']"
-    destroyOnClose
-    title="Modal Title"
     v-bind="$attrs"
+    destroyOnClose
     @register="register"
+    title="Modal Title"
+    :helpMessage="['提示1', '提示2']"
     @visible-change="handleShow"
   >
     <template #insertFooter>
-      <a-button :disabled="loading" danger type="primary" @click="setLines">点我更新内容</a-button>
+      <a-button type="primary" danger @click="setLines" :disabled="loading">点我更新内容</a-button>
     </template>
     <template v-if="loading">
       <div class="empty-tips">加载中，稍等3秒……</div>

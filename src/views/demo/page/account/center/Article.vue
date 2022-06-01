@@ -1,5 +1,5 @@
 <template>
-  <List :class="prefixCls" item-layout="vertical">
+  <List item-layout="vertical" :class="prefixCls">
     <template v-for="item in list" :key="item.title">
       <ListItem>
         <ListItemMeta>
@@ -27,8 +27,8 @@
               <Icon
                 v-if="action.icon"
                 :class="`${prefixCls}__action-icon`"
-                :color="action.color"
                 :icon="action.icon"
+                :color="action.color"
               />
               {{ action.text }}
             </div>

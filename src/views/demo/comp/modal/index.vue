@@ -5,29 +5,29 @@
     参数进行控制是否可以拖动/全屏，并演示了在Modal内动态加载内容并自动调整高度"
       show-icon
     />
-    <a-button class="my-4" type="primary" @click="openModalLoading">
+    <a-button type="primary" class="my-4" @click="openModalLoading">
       打开弹窗,加载动态数据并自动调整高度(默认可以拖动/全屏)
     </a-button>
 
     <Alert message="内外同时同时显示隐藏" show-icon />
-    <a-button class="my-4" type="primary" @click="openModal2"> 打开弹窗 </a-button>
+    <a-button type="primary" class="my-4" @click="openModal2"> 打开弹窗 </a-button>
     <Alert message="自适应高度" show-icon />
-    <a-button class="my-4" type="primary" @click="openModal3"> 打开弹窗 </a-button>
+    <a-button type="primary" class="my-4" @click="openModal3"> 打开弹窗 </a-button>
 
     <Alert message="内外数据交互" show-icon />
-    <a-button class="my-4" type="primary" @click="send"> 打开弹窗并传递数据 </a-button>
+    <a-button type="primary" class="my-4" @click="send"> 打开弹窗并传递数据 </a-button>
 
     <Alert message="使用动态组件的方式在页面内使用多个弹窗" show-icon />
     <a-space>
-      <a-button class="my-4" type="primary" @click="openTargetModal(1)"> 打开弹窗1 </a-button>
-      <a-button class="my-4" type="primary" @click="openTargetModal(2)"> 打开弹窗2 </a-button>
-      <a-button class="my-4" type="primary" @click="openTargetModal(3)"> 打开弹窗3 </a-button>
-      <a-button class="my-4" type="primary" @click="openTargetModal(4)"> 打开弹窗4 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(1)"> 打开弹窗1 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(2)"> 打开弹窗2 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(3)"> 打开弹窗3 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(4)"> 打开弹窗4 </a-button>
     </a-space>
 
     <component :is="currentModal" v-model:visible="modalVisible" :userData="userData" />
 
-    <Modal1 :minHeight="100" @register="register1" />
+    <Modal1 @register="register1" :minHeight="100" />
     <Modal2 @register="register2" />
     <Modal3 @register="register3" />
     <Modal4 @register="register4" />

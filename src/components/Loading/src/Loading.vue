@@ -1,11 +1,11 @@
 <template>
   <section
-    v-show="loading"
+    class="full-loading"
     :class="{ absolute, [theme]: !!theme }"
     :style="[background ? `background-color: ${background}` : '']"
-    class="full-loading"
+    v-show="loading"
   >
-    <Spin :size="size" :spinning="loading" :tip="tip" v-bind="$attrs" />
+    <Spin v-bind="$attrs" :tip="tip" :size="size" :spinning="loading" />
   </section>
 </template>
 <script lang="ts">

@@ -5,8 +5,8 @@
     </div>
     <div class="p-2 bg-white">
       <List
-        :data-source="data"
         :grid="{ gutter: 5, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: grid }"
+        :data-source="data"
         :pagination="paginationProp"
       >
         <template #header>
@@ -17,8 +17,8 @@
                 <div class="w-50">每行显示数量</div
                 ><Slider
                   id="slider"
-                  v-model:value="grid"
                   v-bind="sliderProp"
+                  v-model:value="grid"
                   @change="sliderChange"
               /></template>
               <Button><TableOutlined /></Button>
@@ -42,6 +42,7 @@
                 <!--              <SettingOutlined key="setting" />-->
                 <EditOutlined key="edit" />
                 <Dropdown
+                  :trigger="['hover']"
                   :dropMenuList="[
                     {
                       text: '删除',
@@ -52,7 +53,6 @@
                       },
                     },
                   ]"
-                  :trigger="['hover']"
                   popconfirm
                 >
                   <EllipsisOutlined key="ellipsis" />

@@ -3,28 +3,28 @@
     <template v-for="(action, index) in getActions" :key="`${index}-${action.label}`">
       <Tooltip v-if="action.tooltip" v-bind="getTooltip(action.tooltip)">
         <PopConfirmButton v-bind="action">
-          <Icon v-if="action.icon" :class="{ 'mr-1': !!action.label }" :icon="action.icon" />
+          <Icon :icon="action.icon" :class="{ 'mr-1': !!action.label }" v-if="action.icon" />
           <template v-if="action.label">{{ action.label }}</template>
         </PopConfirmButton>
       </Tooltip>
       <PopConfirmButton v-else v-bind="action">
-        <Icon v-if="action.icon" :class="{ 'mr-1': !!action.label }" :icon="action.icon" />
+        <Icon :icon="action.icon" :class="{ 'mr-1': !!action.label }" v-if="action.icon" />
         <template v-if="action.label">{{ action.label }}</template>
       </PopConfirmButton>
       <Divider
-        v-if="divider && index < getActions.length - 1"
-        class="action-divider"
         type="vertical"
+        class="action-divider"
+        v-if="divider && index < getActions.length - 1"
       />
     </template>
     <Dropdown
-      v-if="dropDownActions && getDropdownList.length > 0"
-      :dropMenuList="getDropdownList"
       :trigger="['hover']"
+      :dropMenuList="getDropdownList"
       popconfirm
+      v-if="dropDownActions && getDropdownList.length > 0"
     >
       <slot name="more"></slot>
-      <a-button v-if="!$slots.more" size="small" type="link">
+      <a-button type="link" size="small" v-if="!$slots.more">
         <MoreOutlined class="icon-more" />
       </a-button>
     </Dropdown>

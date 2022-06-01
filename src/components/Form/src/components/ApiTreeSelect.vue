@@ -1,9 +1,9 @@
 <template>
   <a-tree-select v-bind="getAttrs" @change="handleChange">
-    <template v-for="item in Object.keys($slots)" #[item]="data">
+    <template #[item]="data" v-for="item in Object.keys($slots)">
       <slot :name="item" v-bind="data || {}"></slot>
     </template>
-    <template v-if="loading" #suffixIcon>
+    <template #suffixIcon v-if="loading">
       <LoadingOutlined spin />
     </template>
   </a-tree-select>

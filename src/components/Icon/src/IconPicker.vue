@@ -1,24 +1,24 @@
 <template>
   <a-input
-    v-model:value="currentSelect"
-    :class="prefixCls"
-    :placeholder="t('component.icon.placeholder')"
-    :style="{ width }"
     disabled
+    :style="{ width }"
+    :placeholder="t('component.icon.placeholder')"
+    :class="prefixCls"
+    v-model:value="currentSelect"
   >
     <template #addonAfter>
       <a-popover
-        v-model="visible"
-        :overlayClassName="`${prefixCls}-popover`"
         placement="bottomLeft"
         trigger="click"
+        v-model="visible"
+        :overlayClassName="`${prefixCls}-popover`"
       >
         <template #title>
           <div class="flex justify-between">
             <a-input
               :placeholder="t('component.icon.search')"
-              allowClear
               @change="debounceHandleSearchChange"
+              allowClear
             />
           </div>
         </template>
@@ -31,22 +31,22 @@
                   v-for="icon in getPaginationList"
                   :key="icon"
                   :class="currentSelect === icon ? 'border border-primary' : ''"
-                  :title="icon"
                   class="p-2 w-1/8 cursor-pointer mr-1 mt-1 flex justify-center items-center border border-solid hover:border-primary"
                   @click="handleClick(icon)"
+                  :title="icon"
                 >
                   <!-- <Icon :icon="icon" :prefix="prefix" /> -->
                   <SvgIcon v-if="isSvgMode" :name="icon" />
-                  <Icon v-else :icon="icon" />
+                  <Icon :icon="icon" v-else />
                 </li>
               </ul>
             </ScrollContainer>
-            <div v-if="getTotal >= pageSize" class="flex py-2 items-center justify-center">
+            <div class="flex py-2 items-center justify-center" v-if="getTotal >= pageSize">
               <a-pagination
-                :pageSize="pageSize"
-                :total="getTotal"
                 showLessItems
                 size="small"
+                :pageSize="pageSize"
+                :total="getTotal"
                 @change="handlePageChange"
               />
             </div>
@@ -56,10 +56,10 @@
           </template>
         </template>
 
-        <span v-if="isSvgMode && currentSelect" class="cursor-pointer px-2 py-1 flex items-center">
+        <span class="cursor-pointer px-2 py-1 flex items-center" v-if="isSvgMode && currentSelect">
           <SvgIcon :name="currentSelect" />
         </span>
-        <Icon v-else :icon="currentSelect || 'ion:apps-outline'" class="cursor-pointer px-2 py-1" />
+        <Icon :icon="currentSelect || 'ion:apps-outline'" class="cursor-pointer px-2 py-1" v-else />
       </a-popover>
     </template>
   </a-input>

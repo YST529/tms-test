@@ -11,9 +11,9 @@
         <Avatar :size="60" :src="record.avatar" />
       </template>
       <template #img="{ text }">
-        <TableImg :imgList="text" :simpleShow="true" :size="60" />
+        <TableImg :size="60" :simpleShow="true" :imgList="text" />
       </template>
-      <template #imgs="{ text }"> <TableImg :imgList="text" :size="60" /> </template>
+      <template #imgs="{ text }"> <TableImg :size="60" :imgList="text" /> </template>
 
       <template #category="{ record }">
         <Tag color="green">

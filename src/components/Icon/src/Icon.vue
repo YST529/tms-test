@@ -1,9 +1,9 @@
 <template>
   <SvgIcon
+    :size="size"
+    :name="getSvgIcon"
     v-if="isSvgIcon"
     :class="[$attrs.class, 'anticon']"
-    :name="getSvgIcon"
-    :size="size"
     :spin="spin"
   />
   <span

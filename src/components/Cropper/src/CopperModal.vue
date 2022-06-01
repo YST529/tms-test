@@ -1,93 +1,93 @@
 <template>
   <BasicModal
-    :canFullscreen="false"
-    :okText="t('component.cropper.okText')"
-    :title="t('component.cropper.modalTitle')"
     v-bind="$attrs"
-    width="800px"
-    @ok="handleOk"
     @register="register"
+    :title="t('component.cropper.modalTitle')"
+    width="800px"
+    :canFullscreen="false"
+    @ok="handleOk"
+    :okText="t('component.cropper.okText')"
   >
     <div :class="prefixCls">
       <div :class="`${prefixCls}-left`">
         <div :class="`${prefixCls}-cropper`">
           <CropperImage
             v-if="src"
-            :circled="circled"
             :src="src"
             height="300px"
+            :circled="circled"
             @cropend="handleCropend"
             @ready="handleReady"
           />
         </div>
 
         <div :class="`${prefixCls}-toolbar`">
-          <Upload :beforeUpload="handleBeforeUpload" :fileList="[]" accept="image/*">
+          <Upload :fileList="[]" accept="image/*" :beforeUpload="handleBeforeUpload">
             <Tooltip :title="t('component.cropper.selectImage')" placement="bottom">
-              <a-button preIcon="ant-design:upload-outlined" size="small" type="primary" />
+              <a-button size="small" preIcon="ant-design:upload-outlined" type="primary" />
             </Tooltip>
           </Upload>
           <Space>
             <Tooltip :title="t('component.cropper.btn_reset')" placement="bottom">
               <a-button
-                :disabled="!src"
+                type="primary"
                 preIcon="ant-design:reload-outlined"
                 size="small"
-                type="primary"
+                :disabled="!src"
                 @click="handlerToolbar('reset')"
               />
             </Tooltip>
             <Tooltip :title="t('component.cropper.btn_rotate_left')" placement="bottom">
               <a-button
-                :disabled="!src"
+                type="primary"
                 preIcon="ant-design:rotate-left-outlined"
                 size="small"
-                type="primary"
+                :disabled="!src"
                 @click="handlerToolbar('rotate', -45)"
               />
             </Tooltip>
             <Tooltip :title="t('component.cropper.btn_rotate_right')" placement="bottom">
               <a-button
-                :disabled="!src"
+                type="primary"
                 preIcon="ant-design:rotate-right-outlined"
                 size="small"
-                type="primary"
+                :disabled="!src"
                 @click="handlerToolbar('rotate', 45)"
               />
             </Tooltip>
             <Tooltip :title="t('component.cropper.btn_scale_x')" placement="bottom">
               <a-button
-                :disabled="!src"
+                type="primary"
                 preIcon="vaadin:arrows-long-h"
                 size="small"
-                type="primary"
+                :disabled="!src"
                 @click="handlerToolbar('scaleX')"
               />
             </Tooltip>
             <Tooltip :title="t('component.cropper.btn_scale_y')" placement="bottom">
               <a-button
-                :disabled="!src"
+                type="primary"
                 preIcon="vaadin:arrows-long-v"
                 size="small"
-                type="primary"
+                :disabled="!src"
                 @click="handlerToolbar('scaleY')"
               />
             </Tooltip>
             <Tooltip :title="t('component.cropper.btn_zoom_in')" placement="bottom">
               <a-button
-                :disabled="!src"
+                type="primary"
                 preIcon="ant-design:zoom-in-outlined"
                 size="small"
-                type="primary"
+                :disabled="!src"
                 @click="handlerToolbar('zoom', 0.1)"
               />
             </Tooltip>
             <Tooltip :title="t('component.cropper.btn_zoom_out')" placement="bottom">
               <a-button
-                :disabled="!src"
+                type="primary"
                 preIcon="ant-design:zoom-out-outlined"
                 size="small"
-                type="primary"
+                :disabled="!src"
                 @click="handlerToolbar('zoom', -0.1)"
               />
             </Tooltip>
@@ -96,14 +96,14 @@
       </div>
       <div :class="`${prefixCls}-right`">
         <div :class="`${prefixCls}-preview`">
-          <img v-if="previewSource" :alt="t('component.cropper.preview')" :src="previewSource" />
+          <img :src="previewSource" v-if="previewSource" :alt="t('component.cropper.preview')" />
         </div>
         <template v-if="previewSource">
           <div :class="`${prefixCls}-group`">
             <Avatar :src="previewSource" size="large" />
-            <Avatar :size="48" :src="previewSource" />
-            <Avatar :size="64" :src="previewSource" />
-            <Avatar :size="80" :src="previewSource" />
+            <Avatar :src="previewSource" :size="48" />
+            <Avatar :src="previewSource" :size="64" />
+            <Avatar :src="previewSource" :size="80" />
           </div>
         </template>
       </div>

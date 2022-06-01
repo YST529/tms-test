@@ -1,5 +1,5 @@
 <template>
-  <BasicModal :title="getTitle" v-bind="$attrs" @ok="handleSubmit" @register="registerModal">
+  <BasicModal v-bind="$attrs" @register="registerModal" :title="getTitle" @ok="handleSubmit">
     <BasicForm @register="registerForm" />
   </BasicModal>
 </template>

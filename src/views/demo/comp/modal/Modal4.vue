@@ -1,12 +1,12 @@
 <template>
   <BasicModal
-    title="Modal Title"
     v-bind="$attrs"
     @register="register"
+    title="Modal Title"
     @visible-change="handleVisibleChange"
   >
     <div class="pt-3px pr-3px">
-      <BasicForm :model="model" @register="registerForm" />
+      <BasicForm @register="registerForm" :model="model" />
     </div>
   </BasicModal>
 </template>

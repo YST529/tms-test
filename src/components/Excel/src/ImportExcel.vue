@@ -1,10 +1,10 @@
 <template>
   <div>
     <input
-      v-show="false"
       ref="inputRef"
-      accept=".xlsx, .xls"
       type="file"
+      v-show="false"
+      accept=".xlsx, .xls"
       @change="handleInputClick"
     />
     <div @click="handleUpload">

@@ -3,9 +3,9 @@
     <template #headerContent>
       基于Vue Next, TypeScript, Ant Design Vue实现的一套完整的企业级后台管理系统。
       <div :class="`${prefixCls}__link`">
-        <a><Icon color="#1890ff" icon="bx:bx-paper-plane" /><span>开始</span></a>
-        <a><Icon color="#1890ff" icon="carbon:warning" /><span>简介</span></a>
-        <a><Icon color="#1890ff" icon="ion:document-text-outline" /><span>文档</span></a>
+        <a><Icon icon="bx:bx-paper-plane" color="#1890ff" /><span>开始</span></a>
+        <a><Icon icon="carbon:warning" color="#1890ff" /><span>简介</span></a>
+        <a><Icon icon="ion:document-text-outline" color="#1890ff" /><span>文档</span></a>
       </div>
     </template>
 
@@ -15,9 +15,9 @@
           <template v-for="item in list" :key="item.title">
             <a-col :span="6">
               <a-list-item>
-                <a-card :class="`${prefixCls}__card`" :hoverable="true">
+                <a-card :hoverable="true" :class="`${prefixCls}__card`">
                   <div :class="`${prefixCls}__card-title`">
-                    <Icon v-if="item.icon" :color="item.color" :icon="item.icon" class="icon" />
+                    <Icon class="icon" v-if="item.icon" :icon="item.icon" :color="item.color" />
                     {{ item.title }}
                   </div>
                   <div :class="`${prefixCls}__card-detail`">

@@ -1,14 +1,14 @@
 <template>
   <Table
     v-if="summaryFunc || summaryData"
-    :bordered="false"
-    :columns="getColumns"
-    :dataSource="getDataSource"
-    :pagination="false"
-    :rowKey="(r) => r[rowKey]"
-    :scroll="scroll"
     :showHeader="false"
+    :bordered="false"
+    :pagination="false"
+    :dataSource="getDataSource"
+    :rowKey="(r) => r[rowKey]"
+    :columns="getColumns"
     tableLayout="fixed"
+    :scroll="scroll"
   />
 </template>
 <script lang="ts">

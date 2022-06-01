@@ -1,9 +1,9 @@
 <template>
   <PageWrapper
+    title="流程图"
     content="简单流程图示例,具体功能需要自己完善"
     contentFullHeight
     fixedHeight
-    title="流程图"
   >
     <FlowChart :data="demoData" />
   </PageWrapper>

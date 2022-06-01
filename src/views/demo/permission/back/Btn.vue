@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper contentBackground contentClass="p-4" title="按钮权限控制">
+  <PageWrapper contentBackground title="按钮权限控制" contentClass="p-4">
     <CurrentPermissionMode />
     <p>
       当前拥有的code列表: <a> {{ permissionStore.getPermCodeList }} </a>
@@ -7,51 +7,51 @@
     <Divider />
     <Alert
       class="mt-4"
+      type="info"
       message="点击后请查看按钮变化(必须处于后台权限模式才可测试此页面所展示的功能)"
       show-icon
-      type="info"
     />
     <Divider />
-    <a-button :disabled="!isBackPermissionMode" class="mr-2" type="primary" @click="switchToken(2)">
+    <a-button type="primary" class="mr-2" @click="switchToken(2)" :disabled="!isBackPermissionMode">
       点击切换按钮权限(用户id为2)
     </a-button>
-    <a-button :disabled="!isBackPermissionMode" type="primary" @click="switchToken(1)">
+    <a-button type="primary" @click="switchToken(1)" :disabled="!isBackPermissionMode">
       点击切换按钮权限(用户id为1,默认)
     </a-button>
 
     <template v-if="isBackPermissionMode">
       <Divider>组件方式判断权限</Divider>
       <Authority :value="'1000'">
-        <a-button class="mx-4" type="primary"> 拥有code ['1000']权限可见 </a-button>
+        <a-button type="primary" class="mx-4"> 拥有code ['1000']权限可见 </a-button>
       </Authority>
 
       <Authority :value="'2000'">
-        <a-button class="mx-4" color="success"> 拥有code ['2000']权限可见 </a-button>
+        <a-button color="success" class="mx-4"> 拥有code ['2000']权限可见 </a-button>
       </Authority>
 
       <Authority :value="['1000', '2000']">
-        <a-button class="mx-4" color="error"> 拥有code ['1000','2000']角色权限可见 </a-button>
+        <a-button color="error" class="mx-4"> 拥有code ['1000','2000']角色权限可见 </a-button>
       </Authority>
 
       <Divider>函数方式方式判断权限</Divider>
-      <a-button v-if="hasPermission('1000')" class="mx-4" type="primary">
+      <a-button v-if="hasPermission('1000')" type="primary" class="mx-4">
         拥有code ['1000']权限可见
       </a-button>
 
-      <a-button v-if="hasPermission('2000')" class="mx-4" color="success">
+      <a-button v-if="hasPermission('2000')" color="success" class="mx-4">
         拥有code ['2000']权限可见
       </a-button>
 
-      <a-button v-if="hasPermission(['1000', '2000'])" class="mx-4" color="error">
+      <a-button v-if="hasPermission(['1000', '2000'])" color="error" class="mx-4">
         拥有code ['1000','2000']角色权限可见
       </a-button>
 
       <Divider>指令方式方式判断权限(该方式不能动态修改权限.)</Divider>
-      <a-button v-auth="'1000'" class="mx-4" type="primary"> 拥有code ['1000']权限可见 </a-button>
+      <a-button v-auth="'1000'" type="primary" class="mx-4"> 拥有code ['1000']权限可见 </a-button>
 
-      <a-button v-auth="'2000'" class="mx-4" color="success"> 拥有code ['2000']权限可见 </a-button>
+      <a-button v-auth="'2000'" color="success" class="mx-4"> 拥有code ['2000']权限可见 </a-button>
 
-      <a-button v-auth="['1000', '2000']" class="mx-4" color="error">
+      <a-button v-auth="['1000', '2000']" color="error" class="mx-4">
         拥有code ['1000','2000']角色权限可见
       </a-button>
     </template>

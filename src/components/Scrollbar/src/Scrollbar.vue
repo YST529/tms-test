@@ -12,7 +12,7 @@
     </div>
     <template v-if="!native">
       <bar :move="moveX" :size="sizeWidth" />
-      <bar :move="moveY" :size="sizeHeight" vertical />
+      <bar vertical :move="moveY" :size="sizeHeight" />
     </template>
   </div>
 </template>

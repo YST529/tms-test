@@ -1,5 +1,5 @@
 <template>
-  <Dropdown :overlayClassName="`${prefixCls}-dropdown-overlay`" placement="bottomLeft">
+  <Dropdown placement="bottomLeft" :overlayClassName="`${prefixCls}-dropdown-overlay`">
     <span :class="[prefixCls, `${prefixCls}--${theme}`]" class="flex">
       <img :class="`${prefixCls}__header`" :src="getUserInfo.avatar" />
       <span :class="`${prefixCls}__info hidden md:block`">
@@ -12,10 +12,10 @@
     <template #overlay>
       <Menu @click="handleMenuClick">
         <MenuItem
-          v-if="getShowDoc"
           key="doc"
           :text="t('layout.header.dropdownItemDoc')"
           icon="ion:document-text-outline"
+          v-if="getShowDoc"
         />
         <MenuDivider v-if="getShowDoc" />
         <MenuItem

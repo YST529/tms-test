@@ -1,13 +1,13 @@
 <template>
   <BasicModal
-    :showOkBtn="false"
+    width="800px"
     :title="t('component.upload.preview')"
     class="upload-preview-modal"
     v-bind="$attrs"
-    width="800px"
     @register="register"
+    :showOkBtn="false"
   >
-    <FileList :actionColumn="actionColumn" :columns="columns" :dataSource="fileListRef" />
+    <FileList :dataSource="fileListRef" :columns="columns" :actionColumn="actionColumn" />
   </BasicModal>
 </template>
 <script lang="ts">

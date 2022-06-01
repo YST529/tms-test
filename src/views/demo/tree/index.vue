@@ -2,40 +2,40 @@
   <PageWrapper title="Tree基础示例">
     <Row :gutter="[16, 16]">
       <Col :span="8">
-        <BasicTree :treeData="treeData" defaultExpandLevel="1" title="基础示例，默认展开第一层">
+        <BasicTree title="基础示例，默认展开第一层" :treeData="treeData" defaultExpandLevel="1">
           <template #title> 123123 </template>
         </BasicTree>
       </Col>
       <Col :span="8">
         <BasicTree
-          :checkable="true"
-          :treeData="treeData"
-          defaultExpandAll
           title="可勾选，默认全部展开"
+          :treeData="treeData"
+          :checkable="true"
+          defaultExpandAll
           @check="handleCheck"
         />
       </Col>
       <Col :span="8">
         <BasicTree
-          :checkable="true"
-          :checkedKeys="['0-0']"
-          :expandedKeys="['0-0']"
-          :treeData="treeData"
           title="指定默认展开/勾选示例"
+          :treeData="treeData"
+          :checkable="true"
+          :expandedKeys="['0-0']"
+          :checkedKeys="['0-0']"
         />
       </Col>
       <Col :span="8">
         <BasicTree
-          ref="asyncTreeRef"
-          :load-data="onLoadData"
-          :treeData="tree"
           title="懒加载异步树"
+          ref="asyncTreeRef"
+          :treeData="tree"
+          :load-data="onLoadData"
         />
       </Col>
       <Col :span="8">
         <Card title="异步数据，默认展开">
           <template #extra>
-            <a-button :loading="treeLoading" @click="loadTreeData">加载数据</a-button>
+            <a-button @click="loadTreeData" :loading="treeLoading">加载数据</a-button>
           </template>
           <Spin :spinning="treeLoading">
             <BasicTree ref="asyncExpandTreeRef" :treeData="tree2" />
@@ -45,9 +45,9 @@
       <Col :span="8">
         <Card title="BasicTree内置加载">
           <template #extra>
-            <a-button :loading="treeLoading" @click="loadTreeData2">请求数据</a-button>
+            <a-button @click="loadTreeData2" :loading="treeLoading">请求数据</a-button>
           </template>
-          <BasicTree ref="loadTreeRef" :loading="treeLoading" :treeData="tree2" />
+          <BasicTree ref="loadTreeRef" :treeData="tree2" :loading="treeLoading" />
         </Card>
       </Col>
     </Row>

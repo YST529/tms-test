@@ -1,21 +1,21 @@
 <template>
   <PageWrapper
-    content="目前mock了两组数据， id为1 和 2 具体返回的菜单可以在mock/sys/menu.ts内查看"
+    title="后台权限示例"
     contentBackground
     contentClass="p-4"
-    title="后台权限示例"
+    content="目前mock了两组数据， id为1 和 2 具体返回的菜单可以在mock/sys/menu.ts内查看"
   >
     <CurrentPermissionMode />
 
-    <Alert class="mt-4" message="点击后请查看左侧菜单变化" show-icon type="info" />
+    <Alert class="mt-4" type="info" message="点击后请查看左侧菜单变化" show-icon />
 
     <div class="mt-4">
       权限切换(请先切换权限模式为后台权限模式):
       <Space>
-        <a-button :disabled="!isBackPermissionMode" @click="switchToken(1)">
+        <a-button @click="switchToken(1)" :disabled="!isBackPermissionMode">
           获取用户id为1的菜单
         </a-button>
-        <a-button :disabled="!isBackPermissionMode" @click="switchToken(2)">
+        <a-button @click="switchToken(2)" :disabled="!isBackPermissionMode">
           获取用户id为2的菜单
         </a-button>
       </Space>

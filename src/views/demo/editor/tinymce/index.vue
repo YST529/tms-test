@@ -1,6 +1,6 @@
 <template>
   <PageWrapper title="富文本组件示例">
-    <Tinymce v-model="value" width="100%" @change="handleChange" />
+    <Tinymce v-model="value" @change="handleChange" width="100%" />
   </PageWrapper>
 </template>
 <script lang="ts">

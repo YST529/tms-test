@@ -1,13 +1,13 @@
 <template>
   <Teleport to="body">
-    <transition mode="out-in" name="zoom-fade">
-      <div v-if="visible" :class="getClass" @click.stop>
-        <div v-click-outside="handleClose" :class="`${prefixCls}-content`">
+    <transition name="zoom-fade" mode="out-in">
+      <div :class="getClass" @click.stop v-if="visible">
+        <div :class="`${prefixCls}-content`" v-click-outside="handleClose">
           <div :class="`${prefixCls}-input__wrapper`">
             <a-input
-              ref="inputRef"
               :class="`${prefixCls}-input`"
               :placeholder="t('common.searchText')"
+              ref="inputRef"
               allow-clear
               @change="handleSearch"
             >
@@ -20,24 +20,24 @@
             </span>
           </div>
 
-          <div v-show="getIsNotData" :class="`${prefixCls}-not-data`">
+          <div :class="`${prefixCls}-not-data`" v-show="getIsNotData">
             {{ t('component.app.searchNotData') }}
           </div>
 
-          <ul v-show="!getIsNotData" ref="scrollWrap" :class="`${prefixCls}-list`">
+          <ul :class="`${prefixCls}-list`" v-show="!getIsNotData" ref="scrollWrap">
             <li
+              :ref="setRefs(index)"
               v-for="(item, index) in searchResult"
               :key="item.path"
-              :ref="setRefs(index)"
+              :data-index="index"
+              @mouseenter="handleMouseenter"
+              @click="handleEnter"
               :class="[
                 `${prefixCls}-list__item`,
                 {
                   [`${prefixCls}-list__item--active`]: activeIndex === index,
                 },
               ]"
-              :data-index="index"
-              @click="handleEnter"
-              @mouseenter="handleMouseenter"
             >
               <div :class="`${prefixCls}-list__item-icon`">
                 <Icon :icon="item.icon || 'mdi:form-select'" :size="20" />
@@ -46,7 +46,7 @@
                 {{ item.name }}
               </div>
               <div :class="`${prefixCls}-list__item-enter`">
-                <Icon :size="20" icon="ant-design:enter-outlined" />
+                <Icon icon="ant-design:enter-outlined" :size="20" />
               </div>
             </li>
           </ul>

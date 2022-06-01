@@ -1,22 +1,22 @@
 <template>
   <div :class="bem()" class="flex px-2 py-1.5 items-center">
-    <slot v-if="slots.headerTitle" name="headerTitle"></slot>
-    <BasicTitle v-if="!slots.headerTitle && title" :helpMessage="helpMessage">
+    <slot name="headerTitle" v-if="slots.headerTitle"></slot>
+    <BasicTitle :helpMessage="helpMessage" v-if="!slots.headerTitle && title">
       {{ title }}
     </BasicTitle>
     <div
-      v-if="search || toolbar"
       class="flex items-center flex-1 cursor-pointer justify-self-stretch"
+      v-if="search || toolbar"
     >
-      <div v-if="search" :class="getInputSearchCls">
+      <div :class="getInputSearchCls" v-if="search">
         <InputSearch
-          v-model:value="searchValue"
           :placeholder="t('common.searchText')"
-          allowClear
           size="small"
+          allowClear
+          v-model:value="searchValue"
         />
       </div>
-      <Dropdown v-if="toolbar" @click.prevent>
+      <Dropdown @click.prevent v-if="toolbar">
         <Icon icon="ion:ellipsis-vertical" />
         <template #overlay>
           <Menu @click="handleMenuClick">

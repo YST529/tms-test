@@ -1,7 +1,7 @@
 <template>
   <BasicModal
-    :title="t('component.excel.exportModalTitle')"
     v-bind="$attrs"
+    :title="t('component.excel.exportModalTitle')"
     @ok="handleOk"
     @register="registerModal"
   >

@@ -1,8 +1,8 @@
 <template>
   <div v-if="getShowDarkModeToggle" :class="getClass" @click="toggleDarkMode">
     <div :class="`${prefixCls}-inner`"></div>
-    <SvgIcon name="sun" size="14" />
-    <SvgIcon name="moon" size="14" />
+    <SvgIcon size="14" name="sun" />
+    <SvgIcon size="14" name="moon" />
   </div>
 </template>
 <script lang="ts" setup>

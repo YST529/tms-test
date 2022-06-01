@@ -1,16 +1,16 @@
 <template>
   <div class="p-4">
     <BasicTable
-      :bordered="border"
-      :canResize="canResize"
-      :columns="columns"
-      :dataSource="data"
-      :loading="loading"
-      :pagination="pagination"
-      :striped="striped"
-      showTableSetting
       title="基础示例"
       titleHelpMessage="温馨提醒"
+      :columns="columns"
+      :dataSource="data"
+      :canResize="canResize"
+      :loading="loading"
+      :striped="striped"
+      :bordered="border"
+      showTableSetting
+      :pagination="pagination"
       @columns-change="handleColumnChange"
     >
       <template #toolbar>

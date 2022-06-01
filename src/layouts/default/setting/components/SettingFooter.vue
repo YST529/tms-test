@@ -1,16 +1,16 @@
 <template>
   <div :class="prefixCls">
-    <a-button block type="primary" @click="handleCopy">
+    <a-button type="primary" block @click="handleCopy">
       <CopyOutlined class="mr-2" />
       {{ t('layout.setting.copyBtn') }}
     </a-button>
 
-    <a-button block class="my-3" color="warning" @click="handleResetSetting">
+    <a-button color="warning" block @click="handleResetSetting" class="my-3">
       <RedoOutlined class="mr-2" />
       {{ t('common.resetText') }}
     </a-button>
 
-    <a-button block color="error" @click="handleClearAndRedo">
+    <a-button color="error" block @click="handleClearAndRedo">
       <RedoOutlined class="mr-2" />
       {{ t('layout.setting.clearBtn') }}
     </a-button>

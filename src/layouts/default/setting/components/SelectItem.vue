@@ -2,12 +2,12 @@
   <div :class="prefixCls">
     <span> {{ title }}</span>
     <Select
-      :class="`${prefixCls}-select`"
-      :disabled="disabled"
-      :options="options"
-      size="small"
       v-bind="getBindValue"
+      :class="`${prefixCls}-select`"
       @change="handleChange"
+      :disabled="disabled"
+      size="small"
+      :options="options"
     />
   </div>
 </template>

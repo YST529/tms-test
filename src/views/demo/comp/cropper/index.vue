@@ -1,15 +1,15 @@
 <template>
-  <PageWrapper content="需要开启测试接口服务才能进行上传测试！" title="图片裁剪示例">
+  <PageWrapper title="图片裁剪示例" content="需要开启测试接口服务才能进行上传测试！">
     <CollapseContainer title="头像裁剪">
       <CropperAvatar :uploadApi="uploadApi" :value="avatar" />
     </CollapseContainer>
 
-    <CollapseContainer class="my-4" title="矩形裁剪">
+    <CollapseContainer title="矩形裁剪" class="my-4">
       <div class="container p-4">
         <div class="cropper-container mr-10">
-          <CropperImage ref="refCropper" :src="img" style="width: 40vw" @cropend="handleCropend" />
+          <CropperImage ref="refCropper" :src="img" @cropend="handleCropend" style="width: 40vw" />
         </div>
-        <img v-if="cropperImg" :src="cropperImg" alt="" class="croppered" />
+        <img :src="cropperImg" class="croppered" v-if="cropperImg" alt="" />
       </div>
       <p v-if="cropperImg">裁剪后图片信息：{{ info }}</p>
     </CollapseContainer>
@@ -20,12 +20,12 @@
           <CropperImage
             ref="refCropper"
             :src="img"
-            circled
-            style="width: 40vw"
             @cropend="handleCircleCropend"
+            style="width: 40vw"
+            circled
           />
         </div>
-        <img v-if="circleImg" :src="circleImg" class="croppered" />
+        <img :src="circleImg" class="croppered" v-if="circleImg" />
       </div>
       <p v-if="circleImg">裁剪后图片信息：{{ circleInfo }}</p>
     </CollapseContainer>

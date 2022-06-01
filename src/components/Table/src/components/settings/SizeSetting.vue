@@ -4,10 +4,10 @@
       <span>{{ t('component.table.settingDens') }}</span>
     </template>
 
-    <Dropdown :getPopupContainer="getPopupContainer" :trigger="['click']" placement="bottom">
+    <Dropdown placement="bottom" :trigger="['click']" :getPopupContainer="getPopupContainer">
       <ColumnHeightOutlined />
       <template #overlay>
-        <Menu v-model:selectedKeys="selectedKeysRef" selectable @click="handleTitleClick">
+        <Menu @click="handleTitleClick" selectable v-model:selectedKeys="selectedKeysRef">
           <MenuItem key="default">
             <span>{{ t('component.table.settingDensDefault') }}</span>
           </MenuItem>

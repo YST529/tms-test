@@ -1,8 +1,8 @@
 <template>
-  <div :class="prefixCls" class="h-full">
-    <FlowChartToolbar v-if="toolbar" :prefixCls="prefixCls" @view-data="handlePreview" />
+  <div class="h-full" :class="prefixCls">
+    <FlowChartToolbar :prefixCls="prefixCls" v-if="toolbar" @view-data="handlePreview" />
     <div ref="lfElRef" class="h-full"></div>
-    <BasicModal title="流程数据" width="50%" @register="register">
+    <BasicModal @register="register" title="流程数据" width="50%">
       <JsonPreview :data="graphData" />
     </BasicModal>
   </div>

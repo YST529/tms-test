@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper content="根据JSON格式的数据进行导出" title="导出示例">
-    <BasicTable :columns="columns" :dataSource="data" title="基础表格">
+  <PageWrapper title="导出示例" content="根据JSON格式的数据进行导出">
+    <BasicTable title="基础表格" :columns="columns" :dataSource="data">
       <template #toolbar>
         <a-button @click="defaultHeader"> 导出：默认头部 </a-button>
         <a-button @click="customHeader"> 导出：自定义头部 </a-button>

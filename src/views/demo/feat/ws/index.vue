@@ -20,13 +20,13 @@
         <hr class="my-4" />
 
         <InputTextArea
-          v-model:value="sendValue"
-          :disabled="!getIsOpen"
-          allowClear
           placeholder="需要发送到服务器的内容"
+          :disabled="!getIsOpen"
+          v-model:value="sendValue"
+          allowClear
         />
 
-        <a-button :disabled="!getIsOpen" block class="mt-4" type="primary" @click="handlerSend">
+        <a-button type="primary" block class="mt-4" :disabled="!getIsOpen" @click="handlerSend">
           发送
         </a-button>
       </div>
@@ -37,7 +37,7 @@
 
         <div class="max-h-80 overflow-auto">
           <ul>
-            <li v-for="item in getList" :key="item.time" class="mt-2">
+            <li v-for="item in getList" class="mt-2" :key="item.time">
               <div class="flex items-center">
                 <span class="mr-2 text-primary font-medium">收到消息:</span>
                 <span>{{ formatToDateTime(item.time) }}</span>

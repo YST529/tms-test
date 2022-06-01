@@ -1,5 +1,5 @@
 <template>
-  <BasicDrawer :isDetail="true" title="Drawer Title5" v-bind="$attrs">
+  <BasicDrawer v-bind="$attrs" :isDetail="true" title="Drawer Title5">
     <p class="h-20">Content Message</p>
     <template #titleToolbar> toolbar </template>
   </BasicDrawer>

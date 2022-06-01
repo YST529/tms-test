@@ -1,29 +1,29 @@
 <template>
   <template v-if="getShow">
     <LoginFormTitle class="enter-x" />
-    <Form ref="formRef" :model="formData" :rules="getFormRules" class="p-4 enter-x">
-      <FormItem class="enter-x" name="mobile">
+    <Form class="p-4 enter-x" :model="formData" :rules="getFormRules" ref="formRef">
+      <FormItem name="mobile" class="enter-x">
         <Input
+          size="large"
           v-model:value="formData.mobile"
           :placeholder="t('sys.login.mobile')"
           class="fix-auto-fill"
-          size="large"
         />
       </FormItem>
-      <FormItem class="enter-x" name="sms">
+      <FormItem name="sms" class="enter-x">
         <CountdownInput
+          size="large"
+          class="fix-auto-fill"
           v-model:value="formData.sms"
           :placeholder="t('sys.login.smsCode')"
-          class="fix-auto-fill"
-          size="large"
         />
       </FormItem>
 
       <FormItem class="enter-x">
-        <Button :loading="loading" block size="large" type="primary" @click="handleLogin">
+        <Button type="primary" size="large" block @click="handleLogin" :loading="loading">
           {{ t('sys.login.loginButton') }}
         </Button>
-        <Button block class="mt-4" size="large" @click="handleBackLogin">
+        <Button size="large" block class="mt-4" @click="handleBackLogin">
           {{ t('sys.login.backSignIn') }}
         </Button>
       </FormItem>

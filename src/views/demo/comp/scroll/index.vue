@@ -1,10 +1,10 @@
 <template>
-  <PageWrapper content="基于el-scrollbar" title="滚动组件示例">
+  <PageWrapper title="滚动组件示例" content="基于el-scrollbar">
     <div class="scroll-wrap">
       <ScrollContainer class="mt-4">
         <ul class="p-3">
           <template v-for="index in 100" :key="index">
-            <li :style="{ border: '1px solid #eee' }" class="p-2">
+            <li class="p-2" :style="{ border: '1px solid #eee' }">
               {{ index }}
             </li>
           </template>

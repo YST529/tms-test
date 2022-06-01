@@ -1,28 +1,28 @@
 <template>
   <div ref="wrapRef" :class="getWrapperClass">
     <BasicForm
-      v-if="getBindValues.useSearchForm"
       ref="formRef"
-      :tableAction="tableAction"
       submitOnReset
       v-bind="getFormProps"
+      v-if="getBindValues.useSearchForm"
+      :tableAction="tableAction"
       @register="registerForm"
       @submit="handleSearchInfoChange"
       @advanced-change="redoHeight"
     >
-      <template v-for="item in getFormSlotKeys" #[replaceFormSlotKey(item)]="data">
+      <template #[replaceFormSlotKey(item)]="data" v-for="item in getFormSlotKeys">
         <slot :name="item" v-bind="data || {}"></slot>
       </template>
     </BasicForm>
 
     <Table
-      v-show="getEmptyDataIsShowTable"
       ref="tableElRef"
-      :rowClassName="getRowClassName"
       v-bind="getBindValues"
+      :rowClassName="getRowClassName"
+      v-show="getEmptyDataIsShowTable"
       @change="handleTableChange"
     >
-      <template v-for="item in Object.keys($slots)" :key="item" #[item]="data">
+      <template #[item]="data" v-for="item in Object.keys($slots)" :key="item">
         <slot :name="item" v-bind="data || {}"></slot>
       </template>
       <template #headerCell="{ column }">

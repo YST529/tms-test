@@ -2,13 +2,13 @@
   <div :class="prefixCls" class="relative">
     <InputPassword
       v-if="showInput"
-      :disabled="disabled"
-      :value="innerValueRef"
-      allowClear
       v-bind="$attrs"
+      allowClear
+      :value="innerValueRef"
       @change="handleChange"
+      :disabled="disabled"
     >
-      <template v-for="item in Object.keys($slots)" #[item]="data">
+      <template #[item]="data" v-for="item in Object.keys($slots)">
         <slot :name="item" v-bind="data || {}"></slot>
       </template>
     </InputPassword>

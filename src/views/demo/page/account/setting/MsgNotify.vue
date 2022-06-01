@@ -1,5 +1,5 @@
 <template>
-  <CollapseContainer :canExpan="false" title="新消息通知">
+  <CollapseContainer title="新消息通知" :canExpan="false">
     <List>
       <template v-for="item in list" :key="item.key">
         <ListItem>
@@ -7,10 +7,10 @@
             <template #title>
               {{ item.title }}
               <Switch
-                checked-children="开"
                 class="extra"
-                default-checked
+                checked-children="开"
                 un-checked-children="关"
+                default-checked
               />
             </template>
             <template #description>

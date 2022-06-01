@@ -2,42 +2,43 @@
   <PageWrapper title="二维码组件使用示例">
     <div class="flex flex-wrap">
       <CollapseContainer
+        title="基础示例"
         :canExpan="true"
         class="text-center mb-6 qrcode-demo-item"
-        title="基础示例"
       >
         <QrCode :value="qrCodeUrl" />
       </CollapseContainer>
 
-      <CollapseContainer class="text-center mb-6 qrcode-demo-item" title="渲染成img标签示例">
+      <CollapseContainer title="渲染成img标签示例" class="text-center mb-6 qrcode-demo-item">
         <QrCode :value="qrCodeUrl" tag="img" />
       </CollapseContainer>
 
-      <CollapseContainer class="text-center mb-6 qrcode-demo-item" title="配置样式示例">
+      <CollapseContainer title="配置样式示例" class="text-center mb-6 qrcode-demo-item">
         <QrCode
+          :value="qrCodeUrl"
           :options="{
             color: { dark: '#55D187' },
           }"
-          :value="qrCodeUrl"
         />
       </CollapseContainer>
 
-      <CollapseContainer class="text-center mb-6 qrcode-demo-item" title="本地logo示例">
-        <QrCode :logo="LogoImg" :value="qrCodeUrl" />
+      <CollapseContainer title="本地logo示例" class="text-center mb-6 qrcode-demo-item">
+        <QrCode :value="qrCodeUrl" :logo="LogoImg" />
       </CollapseContainer>
 
-      <CollapseContainer class="text-center mb-6 qrcode-demo-item" title="在线logo示例">
+      <CollapseContainer title="在线logo示例" class="text-center mb-6 qrcode-demo-item">
         <QrCode
-          :options="{
-            color: { dark: '#55D187' },
-          }"
           :value="qrCodeUrl"
           logo="https://vebn.oss-cn-beijing.aliyuncs.com/vben/logo.png"
+          :options="{
+            color: { dark: '#55D187' },
+          }"
         />
       </CollapseContainer>
 
-      <CollapseContainer class="text-center mb-6 qrcode-demo-item" title="logo配置示例">
+      <CollapseContainer title="logo配置示例" class="text-center mb-6 qrcode-demo-item">
         <QrCode
+          :value="qrCodeUrl"
           :logo="{
             src: 'https://vebn.oss-cn-beijing.aliyuncs.com/vben/logo.png',
             logoSize: 0.2,
@@ -45,27 +46,26 @@
             borderRadius: 50,
             bgColor: 'blue',
           }"
-          :value="qrCodeUrl"
         />
       </CollapseContainer>
 
-      <CollapseContainer class="text-center qrcode-demo-item" title="下载示例">
-        <QrCode ref="qrRef" :logo="LogoImg" :value="qrCodeUrl" />
+      <CollapseContainer title="下载示例" class="text-center qrcode-demo-item">
+        <QrCode :value="qrCodeUrl" ref="qrRef" :logo="LogoImg" />
         <a-button class="mb-2" type="primary" @click="download"> 下载 </a-button>
         <div class="msg">(在线logo会导致图片跨域，需要下载图片需要自行解决跨域问题)</div>
       </CollapseContainer>
 
-      <CollapseContainer class="text-center qrcode-demo-item" title="配置大小示例">
+      <CollapseContainer title="配置大小示例" class="text-center qrcode-demo-item">
         <QrCode :value="qrCodeUrl" :width="300" />
       </CollapseContainer>
 
-      <CollapseContainer class="text-center qrcode-demo-item" title="扩展绘制示例">
+      <CollapseContainer title="扩展绘制示例" class="text-center qrcode-demo-item">
         <QrCode
-          ref="qrDiyRef"
-          :logo="LogoImg"
-          :options="{ margin: 5 }"
           :value="qrCodeUrl"
           :width="200"
+          :options="{ margin: 5 }"
+          ref="qrDiyRef"
+          :logo="LogoImg"
           @done="onQrcodeDone"
         />
         <a-button class="mb-2" type="primary" @click="downloadDiy"> 下载 </a-button>

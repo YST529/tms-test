@@ -6,10 +6,10 @@
       <Time :value="time2" />
     </CollapseContainer>
 
-    <CollapseContainer class="my-4" title="定时更新">
-      <Time :step="1" :value="now" />
+    <CollapseContainer title="定时更新" class="my-4">
+      <Time :value="now" :step="1" />
       <br />
-      <Time :step="5" :value="now" />
+      <Time :value="now" :step="5" />
     </CollapseContainer>
 
     <CollapseContainer title="定时更新">

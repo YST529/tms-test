@@ -1,7 +1,7 @@
 <template>
   <PageWrapper
-    content="不可与scroll共用。TableAction组件可配置stopButtonPropagation来阻止操作按钮的点击事件冒泡，以便配合Table组件的expandRowByClick"
     title="可展开表格"
+    content="不可与scroll共用。TableAction组件可配置stopButtonPropagation来阻止操作按钮的点击事件冒泡，以便配合Table组件的expandRowByClick"
   >
     <BasicTable @register="registerTable">
       <template #expandedRowRender="{ record }">
@@ -9,6 +9,7 @@
       </template>
       <template #action="{ record }">
         <TableAction
+          stopButtonPropagation
           :actions="[
             {
               label: '删除',
@@ -25,7 +26,6 @@
               },
             },
           ]"
-          stopButtonPropagation
         />
       </template>
     </BasicTable>

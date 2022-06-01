@@ -4,7 +4,7 @@
       <BasicForm @register="register" />
     </CollapseContainer>
 
-    <CollapseContainer class="mt-4" title="超过3行自动收起，折叠时保留2行">
+    <CollapseContainer title="超过3行自动收起，折叠时保留2行" class="mt-4">
       <BasicForm @register="register1" />
     </CollapseContainer>
   </PageWrapper>

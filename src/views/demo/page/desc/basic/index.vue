@@ -1,21 +1,21 @@
 <template>
-  <PageWrapper contentBackground title="基础详情页">
+  <PageWrapper title="基础详情页" contentBackground>
     <Description
+      size="middle"
+      title="退款申请"
       :bordered="false"
       :column="3"
       :data="refundData"
       :schema="refundSchema"
-      size="middle"
-      title="退款申请"
     />
     <a-divider />
     <Description
+      size="middle"
+      title="用户信息"
       :bordered="false"
       :column="3"
       :data="personData"
       :schema="personSchema"
-      size="middle"
-      title="用户信息"
     />
     <a-divider />
 

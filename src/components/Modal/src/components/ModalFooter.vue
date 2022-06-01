@@ -1,16 +1,16 @@
 <template>
   <div>
     <slot name="insertFooter"></slot>
-    <a-button v-if="showCancelBtn" v-bind="cancelButtonProps" @click="handleCancel">
+    <a-button v-bind="cancelButtonProps" @click="handleCancel" v-if="showCancelBtn">
       {{ cancelText }}
     </a-button>
     <slot name="centerFooter"></slot>
     <a-button
-      v-if="showOkBtn"
-      :loading="confirmLoading"
       :type="okType"
-      v-bind="okButtonProps"
       @click="handleOk"
+      :loading="confirmLoading"
+      v-bind="okButtonProps"
+      v-if="showOkBtn"
     >
       {{ okText }}
     </a-button>

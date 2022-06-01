@@ -1,9 +1,9 @@
 <template>
-  <a-input :class="prefixCls" :size="size" :value="state" v-bind="$attrs">
+  <a-input v-bind="$attrs" :class="prefixCls" :size="size" :value="state">
     <template #addonAfter>
-      <CountButton :beforeStartFunc="sendCodeApi" :count="count" :size="size" :value="state" />
+      <CountButton :size="size" :count="count" :value="state" :beforeStartFunc="sendCodeApi" />
     </template>
-    <template v-for="item in Object.keys($slots).filter((k) => k !== 'addonAfter')" #[item]="data">
+    <template #[item]="data" v-for="item in Object.keys($slots).filter((k) => k !== 'addonAfter')">
       <slot :name="item" v-bind="data || {}"></slot>
     </template>
   </a-input>

@@ -2,14 +2,14 @@
   <Dropdown
     :dropMenuList="getDropMenuList"
     :trigger="getTrigger"
-    overlayClassName="multiple-tabs__dropdown"
     placement="bottom"
+    overlayClassName="multiple-tabs__dropdown"
     @menu-event="handleMenuEvent"
   >
-    <div v-if="getIsTabs" :class="`${prefixCls}__info`" @contextmenu="handleContext">
+    <div :class="`${prefixCls}__info`" @contextmenu="handleContext" v-if="getIsTabs">
       <span class="ml-1">{{ getTitle }}</span>
     </div>
-    <span v-else :class="`${prefixCls}__extra-quick`" @click="handleContext">
+    <span :class="`${prefixCls}__extra-quick`" v-else @click="handleContext">
       <Icon icon="ion:chevron-down" />
     </span>
   </Dropdown>

@@ -1,6 +1,6 @@
 <template>
-  <div v-if="getIsShowPlaceholderDom" :style="getPlaceholderDomStyle"></div>
-  <div :class="getClass" :style="getWrapStyle">
+  <div :style="getPlaceholderDomStyle" v-if="getIsShowPlaceholderDom"></div>
+  <div :style="getWrapStyle" :class="getClass">
     <LayoutHeader v-if="getShowInsetHeaderRef" />
     <MultipleTabs v-if="getShowTabs" />
   </div>

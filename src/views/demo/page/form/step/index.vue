@@ -1,9 +1,9 @@
 <template>
   <PageWrapper
-    content=" 将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。"
-    contentBackground
-    contentClass="p-4"
     title="分步表单"
+    contentBackground
+    content=" 将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。"
+    contentClass="p-4"
   >
     <div class="step-form-form">
       <a-steps :current="current">
@@ -13,14 +13,14 @@
       </a-steps>
     </div>
     <div class="mt-5">
-      <Step1 v-show="current === 0" @next="handleStep1Next" />
+      <Step1 @next="handleStep1Next" v-show="current === 0" />
       <Step2
-        v-if="initSetp2"
-        v-show="current === 1"
-        @next="handleStep2Next"
         @prev="handleStepPrev"
+        @next="handleStep2Next"
+        v-show="current === 1"
+        v-if="initSetp2"
       />
-      <Step3 v-if="initSetp3" v-show="current === 2" @redo="handleRedo" />
+      <Step3 v-show="current === 2" @redo="handleRedo" v-if="initSetp3" />
     </div>
   </PageWrapper>
 </template>

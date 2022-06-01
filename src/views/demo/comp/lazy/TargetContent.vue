@@ -1,5 +1,5 @@
 <template>
-  <Card :style="{ width: '240px', background: '#fff' }" hoverable>
+  <Card hoverable :style="{ width: '240px', background: '#fff' }">
     <template #cover>
       <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
     </template>

@@ -1,21 +1,21 @@
 <template>
   <BasicDrawer
-    :title="getTitle"
-    showFooter
     v-bind="$attrs"
+    @register="registerDrawer"
+    showFooter
+    :title="getTitle"
     width="500px"
     @ok="handleSubmit"
-    @register="registerDrawer"
   >
     <BasicForm @register="registerForm">
       <template #menu="{ model, field }">
         <BasicTree
           v-model:value="model[field]"
-          :fieldNames="{ title: 'menuName', key: 'id' }"
           :treeData="treeData"
+          :fieldNames="{ title: 'menuName', key: 'id' }"
           checkable
-          title="菜单分配"
           toolbar
+          title="菜单分配"
         />
       </template>
     </BasicForm>

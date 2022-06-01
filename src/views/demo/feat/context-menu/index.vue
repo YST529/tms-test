@@ -4,7 +4,7 @@
       <a-button type="primary" @contextmenu="handleContext"> Right Click on me </a-button>
     </CollapseContainer>
 
-    <CollapseContainer class="mt-4" title="Multiple">
+    <CollapseContainer title="Multiple" class="mt-4">
       <a-button type="primary" @contextmenu="handleMultipleContext"> Right Click on me </a-button>
     </CollapseContainer>
   </PageWrapper>

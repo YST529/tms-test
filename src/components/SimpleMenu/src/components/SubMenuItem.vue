@@ -1,29 +1,29 @@
 <template>
   <li :class="getClass">
     <template v-if="!getCollapse">
-      <div :class="`${prefixCls}-submenu-title`" :style="getItemStyle" @click.stop="handleClick">
+      <div :class="`${prefixCls}-submenu-title`" @click.stop="handleClick" :style="getItemStyle">
         <slot name="title"></slot>
         <Icon
-          :class="`${prefixCls}-submenu-title-icon`"
-          :size="14"
           icon="eva:arrow-ios-downward-outline"
+          :size="14"
+          :class="`${prefixCls}-submenu-title-icon`"
         />
       </div>
       <CollapseTransition>
-        <ul v-show="opened" :class="prefixCls">
+        <ul :class="prefixCls" v-show="opened">
           <slot></slot>
         </ul>
       </CollapseTransition>
     </template>
 
     <Popover
-      v-else
-      :align="{ offset: [0, 0] }"
-      :overlayClassName="`${prefixCls}-menu-popover`"
-      :overlayStyle="getOverlayStyle"
-      :visible="getIsOpend"
       placement="right"
+      :overlayClassName="`${prefixCls}-menu-popover`"
+      v-else
+      :visible="getIsOpend"
       @visible-change="handleVisibleChange"
+      :overlayStyle="getOverlayStyle"
+      :align="{ offset: [0, 0] }"
     >
       <div :class="getSubClass" v-bind="getEvents(false)">
         <div
@@ -38,13 +38,13 @@
         </div>
         <Icon
           v-if="getParentSubMenu"
-          :class="`${prefixCls}-submenu-title-icon`"
-          :size="14"
           icon="eva:arrow-ios-downward-outline"
+          :size="14"
+          :class="`${prefixCls}-submenu-title-icon`"
         />
       </div>
       <!-- eslint-disable-next-line -->
-      <template v-show="opened" #content>
+      <template #content v-show="opened">
         <div v-bind="getEvents(true)">
           <ul :class="[prefixCls, `${prefixCls}-${getTheme}`, `${prefixCls}-popup`]">
             <slot></slot>

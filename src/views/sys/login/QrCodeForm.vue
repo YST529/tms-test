@@ -4,11 +4,11 @@
     <div class="enter-x min-w-64 min-h-64">
       <QrCode
         :value="qrCodeUrl"
-        :width="280"
         class="enter-x flex justify-center xl:justify-start"
+        :width="280"
       />
       <Divider class="enter-x">{{ t('sys.login.scanSign') }}</Divider>
-      <Button block class="mt-4 enter-x" size="large" @click="handleBackLogin">
+      <Button size="large" block class="mt-4 enter-x" @click="handleBackLogin">
         {{ t('sys.login.backSignIn') }}
       </Button>
     </div>

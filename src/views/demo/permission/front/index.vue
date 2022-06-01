@@ -1,24 +1,24 @@
 <template>
   <PageWrapper
-    content="由于刷新的时候会请求用户信息接口，会根据接口重置角色信息，所以刷新后界面会恢复原样，如果不需要，可以注释 src/layout/default/index内的获取用户信息接口"
+    title="前端权限示例"
     contentBackground
     contentClass="p-4"
-    title="前端权限示例"
+    content="由于刷新的时候会请求用户信息接口，会根据接口重置角色信息，所以刷新后界面会恢复原样，如果不需要，可以注释 src/layout/default/index内的获取用户信息接口"
   >
     <CurrentPermissionMode />
 
     <p>
       当前角色: <a> {{ userStore.getRoleList }} </a>
     </p>
-    <Alert class="mt-4" message="点击后请查看左侧菜单变化" show-icon type="info" />
+    <Alert class="mt-4" type="info" message="点击后请查看左侧菜单变化" show-icon />
 
     <div class="mt-4">
       权限切换(请先切换权限模式为前端角色权限模式):
       <Space>
-        <a-button :type="isSuper ? 'primary' : 'default'" @click="changeRole(RoleEnum.SUPER)">
+        <a-button @click="changeRole(RoleEnum.SUPER)" :type="isSuper ? 'primary' : 'default'">
           {{ RoleEnum.SUPER }}
         </a-button>
-        <a-button :type="isTest ? 'primary' : 'default'" @click="changeRole(RoleEnum.TEST)">
+        <a-button @click="changeRole(RoleEnum.TEST)" :type="isTest ? 'primary' : 'default'">
           {{ RoleEnum.TEST }}
         </a-button>
       </Space>

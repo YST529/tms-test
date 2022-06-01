@@ -3,9 +3,9 @@
     <div class="flex justify-center">
       <div class="demo-wrap p-10">
         <StrengthMeter placeholder="默认" />
-        <StrengthMeter disabled placeholder="禁用" />
+        <StrengthMeter placeholder="禁用" disabled />
         <br />
-        <StrengthMeter :show-input="false" placeholder="隐藏input" value="!@#qwe12345" />
+        <StrengthMeter placeholder="隐藏input" :show-input="false" value="!@#qwe12345" />
       </div>
     </div>
   </PageWrapper>

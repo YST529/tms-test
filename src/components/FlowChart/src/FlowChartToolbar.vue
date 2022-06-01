@@ -3,10 +3,10 @@
     <template v-for="item in toolbarItemList" :key="item.type">
       <Tooltip placement="bottom" v-bind="item.disabled ? { visible: false } : {}">
         <template #title>{{ item.tooltip }}</template>
-        <span v-if="item.icon" :class="`${prefixCls}-toolbar__icon`" @click="onControl(item)">
+        <span :class="`${prefixCls}-toolbar__icon`" v-if="item.icon" @click="onControl(item)">
           <Icon
-            :class="item.disabled ? 'cursor-not-allowed disabeld' : 'cursor-pointer'"
             :icon="item.icon"
+            :class="item.disabled ? 'cursor-not-allowed disabeld' : 'cursor-pointer'"
           />
         </span>
       </Tooltip>

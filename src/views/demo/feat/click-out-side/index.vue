@@ -1,7 +1,7 @@
 <template>
   <PageWrapper title="点内外部触发事件">
-    <ClickOutSide class="flex justify-center" @click-outside="handleClickOutside">
-      <div class="demo-box" @click="innerClick">
+    <ClickOutSide @click-outside="handleClickOutside" class="flex justify-center">
+      <div @click="innerClick" class="demo-box">
         {{ text }}
       </div>
     </ClickOutSide>

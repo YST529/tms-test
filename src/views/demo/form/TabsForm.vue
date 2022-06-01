@@ -1,9 +1,9 @@
 <template>
-  <PageWrapper v-loading="loading" title="标签页+多级field表单">
+  <PageWrapper title="标签页+多级field表单" v-loading="loading">
     <div class="mb-4">
-      <a-button class="mr-2" @click="handleReset"> 重置表单 </a-button>
-      <a-button class="mr-2" @click="handleSetValues"> 设置默认值 </a-button>
-      <a-button class="mr-2" type="primary" @click="handleSubmit"> 提交表单 </a-button>
+      <a-button @click="handleReset" class="mr-2"> 重置表单 </a-button>
+      <a-button @click="handleSetValues" class="mr-2"> 设置默认值 </a-button>
+      <a-button @click="handleSubmit" class="mr-2" type="primary"> 提交表单 </a-button>
     </div>
     <CollapseContainer title="标签页+多级field表单">
       <Tabs v-model:activeKey="activeKey">

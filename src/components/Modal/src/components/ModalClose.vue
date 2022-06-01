@@ -1,10 +1,10 @@
 <template>
   <div :class="getClass">
     <template v-if="canFullscreen">
-      <Tooltip v-if="fullScreen" :title="t('component.modal.restore')" placement="bottom">
+      <Tooltip :title="t('component.modal.restore')" placement="bottom" v-if="fullScreen">
         <FullscreenExitOutlined role="full" @click="handleFullScreen" />
       </Tooltip>
-      <Tooltip v-else :title="t('component.modal.maximize')" placement="bottom">
+      <Tooltip :title="t('component.modal.maximize')" placement="bottom" v-else>
         <FullscreenOutlined role="close" @click="handleFullScreen" />
       </Tooltip>
     </template>

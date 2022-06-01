@@ -1,5 +1,5 @@
 <template>
-  <div ref="el" class="relative !h-full w-full overflow-hidden"></div>
+  <div class="relative !h-full w-full overflow-hidden" ref="el"></div>
 </template>
 
 <script lang="ts" setup>

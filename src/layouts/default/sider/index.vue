@@ -1,11 +1,11 @@
 <template>
   <Drawer
     v-if="getIsMobile"
+    placement="left"
     :class="prefixCls"
+    :width="getMenuWidth"
     :getContainer="null"
     :visible="!getCollapsed"
-    :width="getMenuWidth"
-    placement="left"
     @close="handleClose"
   >
     <Sider />

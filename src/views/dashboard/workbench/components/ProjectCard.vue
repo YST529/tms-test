@@ -1,12 +1,12 @@
 <template>
   <Card title="项目" v-bind="$attrs">
     <template #extra>
-      <a-button size="small" type="link">更多</a-button>
+      <a-button type="link" size="small">更多</a-button>
     </template>
 
     <CardGrid v-for="item in items" :key="item" class="!md:w-1/3 !w-full">
       <span class="flex">
-        <Icon :color="item.color" :icon="item.icon" size="30" />
+        <Icon :icon="item.icon" :color="item.color" size="30" />
         <span class="text-lg ml-4">{{ item.title }}</span>
       </span>
       <div class="flex mt-2 h-10 text-secondary">{{ item.desc }}</div>

@@ -1,6 +1,6 @@
 <template>
   <PageWrapper title="Ripple示例">
-    <div v-ripple class="demo-box">content</div>
+    <div class="demo-box" v-ripple>content</div>
   </PageWrapper>
 </template>
 <script lang="ts">

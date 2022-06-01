@@ -1,53 +1,53 @@
 <template>
-  <PageWrapper contentFullHeight title="表单基础示例">
+  <PageWrapper title="表单基础示例" contentFullHeight>
     <CollapseContainer title="基础示例">
       <BasicForm
-        :actionColOptions="{ span: 24 }"
+        autoFocusFirstItem
         :labelWidth="200"
         :schemas="schemas"
-        autoFocusFirstItem
-        @reset="handleReset"
+        :actionColOptions="{ span: 24 }"
         @submit="handleSubmit"
+        @reset="handleReset"
       >
         <template #selectA="{ model, field }">
           <a-select
-            v-model:value="model[field]"
             :options="optionsA"
-            allowClear
             mode="multiple"
+            v-model:value="model[field]"
             @change="valueSelectA = model[field]"
+            allowClear
           />
         </template>
         <template #selectB="{ model, field }">
           <a-select
-            v-model:value="model[field]"
             :options="optionsB"
-            allowClear
             mode="multiple"
+            v-model:value="model[field]"
             @change="valueSelectB = model[field]"
+            allowClear
           />
         </template>
         <template #localSearch="{ model, field }">
           <ApiSelect
-            v-model:value="model[field]"
             :api="optionsListApi"
-            labelField="name"
+            showSearch
+            v-model:value="model[field]"
             optionFilterProp="label"
             resultField="list"
-            showSearch
+            labelField="name"
             valueField="id"
           />
         </template>
         <template #remoteSearch="{ model, field }">
           <ApiSelect
-            v-model:value="model[field]"
             :api="optionsListApi"
-            :filterOption="false"
-            :params="searchParams"
-            labelField="name"
-            resultField="list"
             showSearch
+            v-model:value="model[field]"
+            :filterOption="false"
+            resultField="list"
+            labelField="name"
             valueField="id"
+            :params="searchParams"
             @search="onSearch"
           />
         </template>

@@ -1,11 +1,11 @@
 <template>
   <div :class="prefixCls">
     <a-row :class="`${prefixCls}-top`">
-      <a-col :class="`${prefixCls}-col`" :span="9">
+      <a-col :span="9" :class="`${prefixCls}-col`">
         <a-row>
           <a-col :span="8">
             <div :class="`${prefixCls}-top__avatar`">
-              <img :src="avatar" width="70" />
+              <img width="70" :src="avatar" />
               <span>Vben</span>
               <div>海纳百川，有容乃大</div>
             </div>
@@ -22,8 +22,8 @@
           </a-col>
         </a-row>
       </a-col>
-      <a-col :class="`${prefixCls}-col`" :span="7">
-        <CollapseContainer :canExpan="false" title="标签">
+      <a-col :span="7" :class="`${prefixCls}-col`">
+        <CollapseContainer title="标签" :canExpan="false">
           <template v-for="tag in tags" :key="tag">
             <Tag class="mb-2">
               {{ tag }}
@@ -31,10 +31,10 @@
           </template>
         </CollapseContainer>
       </a-col>
-      <a-col :class="`${prefixCls}-col`" :span="8">
-        <CollapseContainer :canExpan="false" :class="`${prefixCls}-top__team`" title="团队">
+      <a-col :span="8" :class="`${prefixCls}-col`">
+        <CollapseContainer :class="`${prefixCls}-top__team`" title="团队" :canExpan="false">
           <div v-for="(team, index) in teams" :key="index" :class="`${prefixCls}-top__team-item`">
-            <Icon :color="team.color" :icon="team.icon" />
+            <Icon :icon="team.icon" :color="team.color" />
             <span>{{ team.title }}</span>
           </div>
         </CollapseContainer>

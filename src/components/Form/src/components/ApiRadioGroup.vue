@@ -2,12 +2,12 @@
  * @Description:It is troublesome to implement radio button group in the form. So it is extracted independently as a separate component
 -->
 <template>
-  <RadioGroup v-model:value="state" button-style="solid" v-bind="attrs" @change="handleChange">
+  <RadioGroup v-bind="attrs" v-model:value="state" button-style="solid" @change="handleChange">
     <template v-for="item in getOptions" :key="`${item.value}`">
-      <RadioButton v-if="props.isBtn" :disabled="item.disabled" :value="item.value">
+      <RadioButton v-if="props.isBtn" :value="item.value" :disabled="item.disabled">
         {{ item.label }}
       </RadioButton>
-      <Radio v-else :disabled="item.disabled" :value="item.value">
+      <Radio v-else :value="item.value" :disabled="item.disabled">
         {{ item.label }}
       </Radio>
     </template>

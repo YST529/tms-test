@@ -4,7 +4,7 @@
 -->
 <template>
   <span :class="getClass">
-    <Icon :style="$attrs.iconStyle" icon="ion:chevron-forward" />
+    <Icon icon="ion:chevron-forward" :style="$attrs.iconStyle" />
   </span>
 </template>
 <script lang="ts" setup>

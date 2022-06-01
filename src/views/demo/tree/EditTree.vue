@@ -3,48 +3,48 @@
     <Row :gutter="[16, 16]">
       <Col :span="8">
         <BasicTree
+          title="右侧操作按钮/自定义图标"
+          helpMessage="帮助信息"
+          :treeData="treeData"
           :actionList="actionList"
           :renderIcon="createIcon"
-          :treeData="treeData"
-          helpMessage="帮助信息"
-          title="右侧操作按钮/自定义图标"
         />
       </Col>
       <Col :span="8">
-        <BasicTree :beforeRightClick="getRightMenuList" :treeData="treeData" title="右键菜单" />
+        <BasicTree title="右键菜单" :treeData="treeData" :beforeRightClick="getRightMenuList" />
       </Col>
       <Col :span="8">
         <BasicTree
-          :beforeRightClick="getRightMenuList"
-          :treeData="treeData"
-          checkable
-          search
           title="工具栏使用"
           toolbar
+          checkable
+          search
+          :treeData="treeData"
+          :beforeRightClick="getRightMenuList"
         />
       </Col>
       <Col :span="8">
-        <BasicTree :treeData="treeData3" helpMessage="正确的示例" title="没有fieldNames，插槽有效">
+        <BasicTree title="没有fieldNames，插槽有效" helpMessage="正确的示例" :treeData="treeData3">
           <template #title="item"> 插槽：{{ item.name }} </template>
         </BasicTree>
       </Col>
       <Col :span="8">
         <BasicTree
+          title="有fieldNames后，插槽失效"
+          helpMessage="错误的示例, 应该显示插槽的内容才对"
           :fieldNames="{ key: 'id', title: 'name' }"
           :treeData="treeData2"
-          helpMessage="错误的示例, 应该显示插槽的内容才对"
-          title="有fieldNames后，插槽失效"
         >
           <template #title="item"> 插槽：{{ item.title }} </template>
         </BasicTree>
       </Col>
       <Col :span="8">
         <BasicTree
+          title="有fieldNames后，actionList失效"
+          helpMessage="错误的示例，应该在鼠标移上去时，显示新增和删除按钮才对"
+          :treeData="treeData3"
           :actionList="actionList"
           :fieldNames="{ key: 'key', title: 'name' }"
-          :treeData="treeData3"
-          helpMessage="错误的示例，应该在鼠标移上去时，显示新增和删除按钮才对"
-          title="有fieldNames后，actionList失效"
         />
       </Col>
     </Row>

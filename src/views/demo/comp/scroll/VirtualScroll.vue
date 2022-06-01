@@ -2,7 +2,7 @@
   <PageWrapper class="virtual-scroll-demo">
     <Divider>基础滚动示例</Divider>
     <div class="virtual-scroll-demo-wrap">
-      <VScroll :height="300" :itemHeight="41" :items="data" :width="300">
+      <VScroll :itemHeight="41" :items="data" :height="300" :width="300">
         <template #default="{ item }">
           <div class="virtual-scroll-demo__item">
             {{ item.title }}
@@ -13,7 +13,7 @@
 
     <Divider>即使不可见，也预先加载50条数据，防止空白</Divider>
     <div class="virtual-scroll-demo-wrap">
-      <VScroll :bench="50" :height="300" :itemHeight="41" :items="data" :width="300">
+      <VScroll :itemHeight="41" :items="data" :height="300" :width="300" :bench="50">
         <template #default="{ item }">
           <div class="virtual-scroll-demo__item">
             {{ item.title }}

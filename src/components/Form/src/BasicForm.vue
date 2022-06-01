@@ -1,24 +1,24 @@
 <template>
   <Form
-    ref="formElRef"
-    :class="getFormClass"
-    :model="formModel"
     v-bind="getBindValue"
+    :class="getFormClass"
+    ref="formElRef"
+    :model="formModel"
     @keypress.enter="handleEnterPress"
   >
     <Row v-bind="getRow">
       <slot name="formHeader"></slot>
       <template v-for="schema in getSchema" :key="schema.field">
         <FormItem
-          :allDefaultValues="defaultValueRef"
-          :formActionType="formActionType"
-          :formModel="formModel"
-          :formProps="getProps"
-          :schema="schema"
-          :setFormModel="setFormModel"
           :tableAction="tableAction"
+          :formActionType="formActionType"
+          :schema="schema"
+          :formProps="getProps"
+          :allDefaultValues="defaultValueRef"
+          :formModel="formModel"
+          :setFormModel="setFormModel"
         >
-          <template v-for="item in Object.keys($slots)" #[item]="data">
+          <template #[item]="data" v-for="item in Object.keys($slots)">
             <slot :name="item" v-bind="data || {}"></slot>
           </template>
         </FormItem>
@@ -26,8 +26,8 @@
 
       <FormAction v-bind="getFormActionBindProps" @toggle-advanced="handleToggleAdvanced">
         <template
-          v-for="item in ['resetBefore', 'submitBefore', 'advanceBefore', 'advanceAfter']"
           #[item]="data"
+          v-for="item in ['resetBefore', 'submitBefore', 'advanceBefore', 'advanceAfter']"
         >
           <slot :name="item" v-bind="data || {}"></slot>
         </template>

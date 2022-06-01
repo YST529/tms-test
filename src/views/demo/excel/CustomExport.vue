@@ -1,6 +1,6 @@
 <template>
-  <PageWrapper content="可以选择导出格式" title="导出示例">
-    <BasicTable :columns="columns" :dataSource="data" title="基础表格">
+  <PageWrapper title="导出示例" content="可以选择导出格式">
+    <BasicTable title="基础表格" :columns="columns" :dataSource="data">
       <template #toolbar>
         <a-button @click="openModal"> 导出 </a-button>
       </template>

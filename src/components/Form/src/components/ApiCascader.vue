@@ -1,18 +1,18 @@
 <template>
   <a-cascader
     v-model:value="state"
-    :displayRender="handleRenderDisplay"
-    :load-data="loadData"
     :options="options"
+    :load-data="loadData"
     change-on-select
     @change="handleChange"
+    :displayRender="handleRenderDisplay"
   >
-    <template v-if="loading" #suffixIcon>
+    <template #suffixIcon v-if="loading">
       <LoadingOutlined spin />
     </template>
-    <template v-if="loading" #notFoundContent>
+    <template #notFoundContent v-if="loading">
       <span>
-        <LoadingOutlined class="mr-1" spin />
+        <LoadingOutlined spin class="mr-1" />
         {{ t('component.form.apiSelectNotFound') }}
       </span>
     </template>

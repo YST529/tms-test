@@ -7,10 +7,10 @@
       </a-button>
       <a-button class="my-4" type="primary" @click="openCompAbsolute"> 容器内 Loading </a-button>
       <Loading
-        :absolute="absolute"
-        :background="background"
         :loading="loading"
+        :absolute="absolute"
         :theme="theme"
+        :background="background"
         :tip="tip"
       />
 

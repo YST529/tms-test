@@ -17,14 +17,14 @@
       <a-button class="mr-2" @click="getPagination"> 获取分页信息 </a-button>
     </div>
     <BasicTable
-      ref="tableRef"
-      :api="api"
       :canResize="false"
-      :columns="columns"
-      :rowSelection="{ type: 'checkbox' }"
-      rowKey="id"
       title="RefTable示例"
       titleHelpMessage="使用Ref调用表格内方法"
+      ref="tableRef"
+      :api="api"
+      :columns="columns"
+      rowKey="id"
+      :rowSelection="{ type: 'checkbox' }"
     />
   </div>
 </template>

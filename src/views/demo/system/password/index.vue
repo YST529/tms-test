@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper content="修改成功后会自动退出当前登录！" title="修改当前用户密码">
+  <PageWrapper title="修改当前用户密码" content="修改成功后会自动退出当前登录！">
     <div class="py-8 bg-white flex flex-col justify-center items-center">
       <BasicForm @register="register" />
       <div class="flex justify-center">

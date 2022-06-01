@@ -3,6 +3,7 @@
     <template v-for="item in menuTypeList || []" :key="item.title">
       <Tooltip :title="item.title" placement="bottom">
         <div
+          @click="handler(item)"
           :class="[
             `${prefixCls}__item`,
             `${prefixCls}__item--${item.type}`,
@@ -10,7 +11,6 @@
               [`${prefixCls}__item--active`]: def === item.type,
             },
           ]"
-          @click="handler(item)"
         >
           <div class="mix-sidebar"></div>
         </div>

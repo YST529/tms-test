@@ -1,6 +1,6 @@
 <template>
   <ScrollContainer ref="wrapperRef">
-    <div ref="spinRef" v-loading="loading" :loading-tip="loadingTip" :style="spinStyle">
+    <div ref="spinRef" :style="spinStyle" v-loading="loading" :loading-tip="loadingTip">
       <slot></slot>
     </div>
   </ScrollContainer>

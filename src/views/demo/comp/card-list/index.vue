@@ -1,9 +1,9 @@
 <template>
-  <PageWrapper content="基础封装" title="卡片列表示例">
-    <CardList :api="demoListApi" :params="params" @delete="handleDel" @get-method="getMethod">
+  <PageWrapper title="卡片列表示例" content="基础封装">
+    <CardList :params="params" :api="demoListApi" @get-method="getMethod" @delete="handleDel">
       <template #header>
-        <Button color="error" type="primary"> 按钮1 </Button>
-        <Button color="success" type="primary"> 按钮2 </Button>
+        <Button type="primary" color="error"> 按钮1 </Button>
+        <Button type="primary" color="success"> 按钮2 </Button>
       </template>
     </CardList>
   </PageWrapper>

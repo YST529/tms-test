@@ -1,36 +1,36 @@
 <template>
   <PageWrapper title="消息示例">
     <CollapseContainer class="w-full h-32 bg-white rounded-md" title="Message">
-      <a-button class="mr-2" @click="infoMsg('Info message')"> Info </a-button>
-      <a-button class="mr-2" color="success" @click="successMsg('Success message')">
+      <a-button @click="infoMsg('Info message')" class="mr-2"> Info </a-button>
+      <a-button @click="successMsg('Success message')" class="mr-2" color="success">
         Success
       </a-button>
-      <a-button class="mr-2" color="warning" @click="warningMsg('Warning message')">
+      <a-button @click="warningMsg('Warning message')" class="mr-2" color="warning">
         Warning
       </a-button>
-      <a-button class="mr-2" color="error" @click="errorMsg('Error message')"> Error </a-button>
-      <a-button class="mr-2" type="primary" @click="handleLoading"> Loading </a-button>
+      <a-button @click="errorMsg('Error message')" class="mr-2" color="error"> Error </a-button>
+      <a-button @click="handleLoading" class="mr-2" type="primary"> Loading </a-button>
     </CollapseContainer>
 
     <CollapseContainer class="w-full h-32 mt-5 bg-white rounded-md" title="Comfirm">
-      <a-button class="mr-2" @click="handleConfirm('info')"> Info </a-button>
-      <a-button class="mr-2" color="warning" @click="handleConfirm('warning')"> Warning </a-button>
-      <a-button class="mr-2" color="success" @click="handleConfirm('success')"> Success </a-button>
-      <a-button class="mr-2" color="error" @click="handleConfirm('error')"> Error </a-button>
+      <a-button @click="handleConfirm('info')" class="mr-2"> Info </a-button>
+      <a-button @click="handleConfirm('warning')" color="warning" class="mr-2"> Warning </a-button>
+      <a-button @click="handleConfirm('success')" color="success" class="mr-2"> Success </a-button>
+      <a-button @click="handleConfirm('error')" color="error" class="mr-2"> Error </a-button>
     </CollapseContainer>
 
     <CollapseContainer class="w-full h-32 mt-5 bg-white rounded-md" title="Modal">
-      <a-button class="mr-2" @click="handleInfoModal"> Info </a-button>
-      <a-button class="mr-2" color="success" @click="handleSuccessModal"> Success </a-button>
-      <a-button class="mr-2" color="error" @click="handleErrorModal"> Error </a-button>
-      <a-button class="mr-2" color="warning" @click="handleWarningModal"> Warning </a-button>
+      <a-button @click="handleInfoModal" class="mr-2"> Info </a-button>
+      <a-button @click="handleSuccessModal" color="success" class="mr-2"> Success </a-button>
+      <a-button @click="handleErrorModal" color="error" class="mr-2"> Error </a-button>
+      <a-button @click="handleWarningModal" color="warning" class="mr-2"> Warning </a-button>
     </CollapseContainer>
 
     <CollapseContainer
       class="w-full h-32 mt-5 bg-white rounded-md"
       title="Notification 用法与上面一致"
     >
-      <a-button class="mr-2" color="success" @click="handleNotify"> Success </a-button>
+      <a-button @click="handleNotify" color="success" class="mr-2"> Success </a-button>
     </CollapseContainer>
   </PageWrapper>
 </template>

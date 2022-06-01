@@ -1,6 +1,6 @@
 <template>
   <div :class="prefixCls">
-    <CollapseHeader :prefixCls="prefixCls" :show="show" v-bind="props" @expand="handleExpand">
+    <CollapseHeader v-bind="props" :prefixCls="prefixCls" :show="show" @expand="handleExpand">
       <template #title>
         <slot name="title"></slot>
       </template>
@@ -12,12 +12,12 @@
     <div class="p-2">
       <CollapseTransition :enable="canExpan">
         <Skeleton v-if="loading" :active="loading" />
-        <div v-else v-show="show" :class="`${prefixCls}__body`">
+        <div :class="`${prefixCls}__body`" v-else v-show="show">
           <slot></slot>
         </div>
       </CollapseTransition>
     </div>
-    <div v-if="$slots.footer" :class="`${prefixCls}__footer`">
+    <div :class="`${prefixCls}__footer`" v-if="$slots.footer">
       <slot name="footer"></slot>
     </div>
   </div>

@@ -9,9 +9,9 @@
         </span>
       </div>
     </template>
-    <Description class="enter-y" @register="infoRegister" />
-    <Description class="my-4 enter-y" @register="register" />
-    <Description class="enter-y" @register="registerDev" />
+    <Description @register="infoRegister" class="enter-y" />
+    <Description @register="register" class="my-4 enter-y" />
+    <Description @register="registerDev" class="enter-y" />
   </PageWrapper>
 </template>
 <script lang="ts" setup>

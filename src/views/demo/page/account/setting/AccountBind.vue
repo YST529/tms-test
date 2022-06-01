@@ -1,15 +1,15 @@
 <template>
-  <CollapseContainer :canExpan="false" title="账号绑定">
+  <CollapseContainer title="账号绑定" :canExpan="false">
     <List>
       <template v-for="item in list" :key="item.key">
         <ListItem>
           <ListItemMeta>
             <template #avatar>
-              <Icon v-if="item.avatar" :color="item.color" :icon="item.avatar" class="avatar" />
+              <Icon v-if="item.avatar" class="avatar" :icon="item.avatar" :color="item.color" />
             </template>
             <template #title>
               {{ item.title }}
-              <a-button v-if="item.extra" class="extra" size="small" type="link">
+              <a-button type="link" size="small" v-if="item.extra" class="extra">
                 {{ item.extra }}
               </a-button>
             </template>

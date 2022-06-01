@@ -1,17 +1,17 @@
 <template>
   <transition-group
+    class="h-full w-full"
+    v-bind="$attrs"
     ref="elRef"
     :name="transitionName"
     :tag="tag"
-    class="h-full w-full"
     mode="out-in"
-    v-bind="$attrs"
   >
-    <div v-if="isInit" key="component">
+    <div key="component" v-if="isInit">
       <slot :loading="loading"></slot>
     </div>
-    <div v-else key="skeleton">
-      <slot v-if="$slots.skeleton" name="skeleton"></slot>
+    <div key="skeleton" v-else>
+      <slot name="skeleton" v-if="$slots.skeleton"></slot>
       <Skeleton v-else />
     </div>
   </transition-group>

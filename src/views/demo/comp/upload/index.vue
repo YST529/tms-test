@@ -2,17 +2,17 @@
   <PageWrapper title="上传组件示例">
     <a-alert message="基础示例" />
     <BasicUpload
-      :accept="['image/*']"
-      :api="uploadApi"
-      :maxNumber="10"
       :maxSize="20"
-      class="my-5"
+      :maxNumber="10"
       @change="handleChange"
+      :api="uploadApi"
+      class="my-5"
+      :accept="['image/*']"
     />
 
     <a-alert message="嵌入表单,加入表单校验" />
 
-    <BasicForm class="my-5" @register="register" />
+    <BasicForm @register="register" class="my-5" />
   </PageWrapper>
 </template>
 <script lang="ts">

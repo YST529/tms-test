@@ -1,38 +1,38 @@
 <template>
-  <a-col v-if="showActionButtonGroup" v-bind="actionColOpt">
-    <div :style="{ textAlign: actionColOpt.style.textAlign }" style="width: 100%">
+  <a-col v-bind="actionColOpt" v-if="showActionButtonGroup">
+    <div style="width: 100%" :style="{ textAlign: actionColOpt.style.textAlign }">
       <FormItem>
         <slot name="resetBefore"></slot>
         <Button
-          v-if="showResetButton"
-          class="mr-2"
           type="default"
+          class="mr-2"
           v-bind="getResetBtnOptions"
           @click="resetAction"
+          v-if="showResetButton"
         >
           {{ getResetBtnOptions.text }}
         </Button>
         <slot name="submitBefore"></slot>
 
         <Button
-          v-if="showSubmitButton"
-          class="mr-2"
           type="primary"
+          class="mr-2"
           v-bind="getSubmitBtnOptions"
           @click="submitAction"
+          v-if="showSubmitButton"
         >
           {{ getSubmitBtnOptions.text }}
         </Button>
 
         <slot name="advanceBefore"></slot>
         <Button
-          v-if="showAdvancedButton && !hideAdvanceBtn"
-          size="small"
           type="link"
+          size="small"
           @click="toggleAdvanced"
+          v-if="showAdvancedButton && !hideAdvanceBtn"
         >
           {{ isAdvanced ? t('component.form.putAway') : t('component.form.unfold') }}
-          <BasicArrow :expand="!isAdvanced" class="ml-1" up />
+          <BasicArrow class="ml-1" :expand="!isAdvanced" up />
         </Button>
         <slot name="advanceAfter"></slot>
       </FormItem>

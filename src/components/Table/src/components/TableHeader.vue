@@ -4,18 +4,18 @@
       <slot name="headerTop"></slot>
     </div>
     <div class="flex items-center">
-      <slot v-if="$slots.tableTitle" name="tableTitle"></slot>
+      <slot name="tableTitle" v-if="$slots.tableTitle"></slot>
       <TableTitle
-        v-if="!$slots.tableTitle && title"
         :helpMessage="titleHelpMessage"
         :title="title"
+        v-if="!$slots.tableTitle && title"
       />
       <div :class="`${prefixCls}__toolbar`">
         <slot name="toolbar"></slot>
-        <Divider v-if="$slots.toolbar && showTableSetting" type="vertical" />
+        <Divider type="vertical" v-if="$slots.toolbar && showTableSetting" />
         <TableSetting
-          v-if="showTableSetting"
           :setting="tableSetting"
+          v-if="showTableSetting"
           @columns-change="handleColumnChange"
         />
       </div>

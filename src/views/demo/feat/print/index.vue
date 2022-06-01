@@ -4,7 +4,7 @@
       <a-button type="primary" @click="jsonPrint">打印</a-button>
     </CollapseContainer>
 
-    <a-button class="mt-5" type="primary" @click="imagePrint">Image Print</a-button>
+    <a-button type="primary" class="mt-5" @click="imagePrint">Image Print</a-button>
   </PageWrapper>
 </template>
 <script lang="ts">

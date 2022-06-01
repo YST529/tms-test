@@ -1,5 +1,5 @@
 <template>
-  <BasicDrawer title="Drawer Title" v-bind="$attrs" width="50%" @register="register">
+  <BasicDrawer v-bind="$attrs" @register="register" title="Drawer Title" width="50%">
     Drawer Info.
     <a-button type="primary" @click="closeDrawer"> 内部关闭drawer </a-button>
   </BasicDrawer>

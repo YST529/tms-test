@@ -2,25 +2,25 @@
   <PageWrapper title="拖动校验示例">
     <div class="flex justify-center p-4 items-center bg-gray-700">
       <BasicDragVerify ref="el1" @success="handleSuccess" />
-      <a-button class="ml-2" type="primary" @click="handleBtnClick(el1)"> 还原 </a-button>
+      <a-button type="primary" class="ml-2" @click="handleBtnClick(el1)"> 还原 </a-button>
     </div>
 
     <div class="flex justify-center p-4 items-center bg-gray-700">
-      <BasicDragVerify ref="el2" circle @success="handleSuccess" />
-      <a-button class="ml-2" type="primary" @click="handleBtnClick(el2)"> 还原 </a-button>
+      <BasicDragVerify ref="el2" @success="handleSuccess" circle />
+      <a-button type="primary" class="ml-2" @click="handleBtnClick(el2)"> 还原 </a-button>
     </div>
 
     <div class="flex justify-center p-4 items-center bg-gray-700">
       <BasicDragVerify
         ref="el3"
+        @success="handleSuccess"
+        text="拖动以进行校验"
+        successText="校验成功"
         :barStyle="{
           backgroundColor: '#018ffb',
         }"
-        successText="校验成功"
-        text="拖动以进行校验"
-        @success="handleSuccess"
       />
-      <a-button class="ml-2" type="primary" @click="handleBtnClick(el3)"> 还原 </a-button>
+      <a-button type="primary" class="ml-2" @click="handleBtnClick(el3)"> 还原 </a-button>
     </div>
 
     <div class="flex justify-center p-4 items-center bg-gray-700">
@@ -30,7 +30,7 @@
           <RightOutlined v-else />
         </template>
       </BasicDragVerify>
-      <a-button class="ml-2" type="primary" @click="handleBtnClick(el4)"> 还原 </a-button>
+      <a-button type="primary" class="ml-2" @click="handleBtnClick(el4)"> 还原 </a-button>
     </div>
 
     <div class="flex justify-center p-4 items-center bg-gray-700">
@@ -46,7 +46,7 @@
           </div>
         </template>
       </BasicDragVerify>
-      <a-button class="ml-2" type="primary" @click="handleBtnClick(el5)"> 还原 </a-button>
+      <a-button type="primary" class="ml-2" @click="handleBtnClick(el5)"> 还原 </a-button>
     </div>
   </PageWrapper>
 </template>

@@ -5,8 +5,8 @@
       <template v-else>
         <template v-for="item in getImageList" :key="item.src">
           <Image v-bind="item">
-            <template v-if="item.placeholder" #placeholder>
-              <Image :preview="false" :src="item.placeholder" v-bind="item" />
+            <template #placeholder v-if="item.placeholder">
+              <Image v-bind="item" :src="item.placeholder" :preview="false" />
             </template>
           </Image>
         </template>

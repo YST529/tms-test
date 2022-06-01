@@ -1,5 +1,5 @@
 <template>
-  <Card :loading="loading" title="成交占比">
+  <Card title="成交占比" :loading="loading">
     <div ref="chartRef" :style="{ width, height }"></div>
   </Card>
 </template>

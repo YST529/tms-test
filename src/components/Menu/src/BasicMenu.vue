@@ -1,19 +1,19 @@
 <template>
   <Menu
-    :class="getMenuClass"
+    :selectedKeys="selectedKeys"
     :defaultSelectedKeys="defaultSelectedKeys"
-    :inlineIndent="inlineIndent"
     :mode="mode"
     :openKeys="getOpenKeys"
-    :selectedKeys="selectedKeys"
-    :subMenuOpenDelay="0.2"
+    :inlineIndent="inlineIndent"
     :theme="theme"
-    v-bind="getInlineCollapseOptions"
-    @click="handleMenuClick"
     @open-change="handleOpenChange"
+    :class="getMenuClass"
+    @click="handleMenuClick"
+    :subMenuOpenDelay="0.2"
+    v-bind="getInlineCollapseOptions"
   >
     <template v-for="item in items" :key="item.path">
-      <BasicSubMenuItem :isHorizontal="isHorizontal" :item="item" :theme="theme" />
+      <BasicSubMenuItem :item="item" :theme="theme" :isHorizontal="isHorizontal" />
     </template>
   </Menu>
 </template>

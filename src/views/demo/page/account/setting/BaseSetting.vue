@@ -1,5 +1,5 @@
 <template>
-  <CollapseContainer :canExpan="false" title="基本设置">
+  <CollapseContainer title="基本设置" :canExpan="false">
     <a-row :gutter="24">
       <a-col :span="14">
         <BasicForm @register="register" />
@@ -8,12 +8,12 @@
         <div class="change-avatar">
           <div class="mb-2">头像</div>
           <CropperAvatar
-            :btnProps="{ preIcon: 'ant-design:cloud-upload-outlined' }"
             :uploadApi="uploadApi"
             :value="avatar"
             btnText="更换头像"
-            width="150"
+            :btnProps="{ preIcon: 'ant-design:cloud-upload-outlined' }"
             @change="updateAvatar"
+            width="150"
           />
         </div>
       </a-col>

@@ -1,20 +1,20 @@
 <template>
   <Select
-    v-model:value="state"
-    :options="getOptions"
+    @dropdown-visible-change="handleFetch"
     v-bind="$attrs"
     @change="handleChange"
-    @dropdown-visible-change="handleFetch"
+    :options="getOptions"
+    v-model:value="state"
   >
-    <template v-for="item in Object.keys($slots)" #[item]="data">
+    <template #[item]="data" v-for="item in Object.keys($slots)">
       <slot :name="item" v-bind="data || {}"></slot>
     </template>
-    <template v-if="loading" #suffixIcon>
+    <template #suffixIcon v-if="loading">
       <LoadingOutlined spin />
     </template>
-    <template v-if="loading" #notFoundContent>
+    <template #notFoundContent v-if="loading">
       <span>
-        <LoadingOutlined class="mr-1" spin />
+        <LoadingOutlined spin class="mr-1" />
         {{ t('component.form.apiSelectNotFound') }}
       </span>
     </template>

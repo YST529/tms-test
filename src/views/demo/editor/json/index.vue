@@ -1,9 +1,9 @@
 <template>
-  <PageWrapper contentBackground contentFullHeight fixedHeight title="代码编辑器组件示例">
+  <PageWrapper title="代码编辑器组件示例" contentFullHeight fixedHeight contentBackground>
     <template #extra>
       <a-space size="middle">
-        <a-button type="primary" @click="showData">获取数据</a-button>
-        <RadioGroup v-model:value="modeValue" button-style="solid" @change="handleModeChange">
+        <a-button @click="showData" type="primary">获取数据</a-button>
+        <RadioGroup button-style="solid" v-model:value="modeValue" @change="handleModeChange">
           <RadioButton value="application/json"> json数据 </RadioButton>
           <RadioButton value="htmlmixed"> html代码 </RadioButton>
           <RadioButton value="javascript"> javascript代码 </RadioButton>

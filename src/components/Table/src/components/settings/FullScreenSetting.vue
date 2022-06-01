@@ -3,8 +3,8 @@
     <template #title>
       <span>{{ t('component.table.settingFullScreen') }}</span>
     </template>
-    <FullscreenOutlined v-if="!isFullscreen" @click="toggle" />
-    <FullscreenExitOutlined v-else @click="toggle" />
+    <FullscreenOutlined @click="toggle" v-if="!isFullscreen" />
+    <FullscreenExitOutlined @click="toggle" v-else />
   </Tooltip>
 </template>
 <script lang="ts">

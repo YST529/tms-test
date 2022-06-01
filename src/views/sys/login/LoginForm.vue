@@ -1,27 +1,27 @@
 <template>
   <LoginFormTitle v-show="getShow" class="enter-x" />
   <Form
-    v-show="getShow"
-    ref="formRef"
+    class="p-4 enter-x"
     :model="formData"
     :rules="getFormRules"
-    class="p-4 enter-x"
+    ref="formRef"
+    v-show="getShow"
     @keypress.enter="handleLogin"
   >
-    <FormItem class="enter-x" name="account">
+    <FormItem name="account" class="enter-x">
       <Input
+        size="large"
         v-model:value="formData.account"
         :placeholder="t('sys.login.userName')"
         class="fix-auto-fill"
-        size="large"
       />
     </FormItem>
-    <FormItem class="enter-x" name="password">
+    <FormItem name="password" class="enter-x">
       <InputPassword
-        v-model:value="formData.password"
-        :placeholder="t('sys.login.password')"
         size="large"
         visibilityToggle
+        v-model:value="formData.password"
+        :placeholder="t('sys.login.password')"
       />
     </FormItem>
 
@@ -37,7 +37,7 @@
       <ACol :span="12">
         <FormItem :style="{ 'text-align': 'right' }">
           <!-- No logic, you need to deal with it yourself -->
-          <Button size="small" type="link" @click="setLoginState(LoginStateEnum.RESET_PASSWORD)">
+          <Button type="link" size="small" @click="setLoginState(LoginStateEnum.RESET_PASSWORD)">
             {{ t('sys.login.forgetPassword') }}
           </Button>
         </FormItem>
@@ -45,7 +45,7 @@
     </ARow>
 
     <FormItem class="enter-x">
-      <Button :loading="loading" block size="large" type="primary" @click="handleLogin">
+      <Button type="primary" size="large" block @click="handleLogin" :loading="loading">
         {{ t('sys.login.loginButton') }}
       </Button>
       <!-- <Button size="large" class="mt-4 enter-x" block @click="handleRegister">
@@ -72,7 +72,7 @@
 
     <Divider class="enter-x">{{ t('sys.login.otherSignIn') }}</Divider>
 
-    <div :class="`${prefixCls}-sign-in-way`" class="flex justify-evenly enter-x">
+    <div class="flex justify-evenly enter-x" :class="`${prefixCls}-sign-in-way`">
       <GithubFilled />
       <WechatFilled />
       <AlipayCircleFilled />

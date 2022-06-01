@@ -2,6 +2,7 @@
   <div :class="`${prefixCls}-dom`" :style="getDomStyle"></div>
   <div
     v-click-outside="handleClickOutside"
+    :style="getWrapStyle"
     :class="[
       prefixCls,
       getMenuTheme,
@@ -10,18 +11,15 @@
         mini: getCollapsed,
       },
     ]"
-    :style="getWrapStyle"
     v-bind="getMenuEvents"
   >
-    <AppLogo :class="`${prefixCls}-logo`" :showTitle="false" />
+    <AppLogo :showTitle="false" :class="`${prefixCls}-logo`" />
 
     <LayoutTrigger :class="`${prefixCls}-trigger`" />
 
     <ScrollContainer>
       <ul :class="`${prefixCls}-module`">
         <li
-          v-for="item in menuModules"
-          :key="item.path"
           :class="[
             `${prefixCls}-module__item `,
             {
@@ -29,12 +27,14 @@
             },
           ]"
           v-bind="getItemEvents(item)"
+          v-for="item in menuModules"
+          :key="item.path"
         >
           <SimpleMenuTag :item="item" collapseParent dot />
           <Icon
             :class="`${prefixCls}-module__icon`"
-            :icon="item.icon || (item.meta && item.meta.icon)"
             :size="getCollapsed ? 16 : 20"
+            :icon="item.icon || (item.meta && item.meta.icon)"
           />
           <p :class="`${prefixCls}-module__name`">
             {{ t(item.name) }}
@@ -43,7 +43,7 @@
       </ul>
     </ScrollContainer>
 
-    <div ref="sideRef" :class="`${prefixCls}-menu-list`" :style="getMenuStyle">
+    <div :class="`${prefixCls}-menu-list`" ref="sideRef" :style="getMenuStyle">
       <div
         v-show="openMenu"
         :class="[
@@ -55,8 +55,8 @@
       >
         <span class="text"> {{ title }}</span>
         <Icon
-          :icon="getMixSideFixed ? 'ri:pushpin-2-fill' : 'ri:pushpin-2-line'"
           :size="16"
+          :icon="getMixSideFixed ? 'ri:pushpin-2-fill' : 'ri:pushpin-2-line'"
           class="pushpin"
           @click="handleFixedMenu"
         />
@@ -71,8 +71,8 @@
       </ScrollContainer>
       <div
         v-show="getShowDragBar && openMenu"
-        ref="dragBarRef"
         :class="`${prefixCls}-drag-bar`"
+        ref="dragBarRef"
       ></div>
     </div>
   </div>

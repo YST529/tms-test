@@ -7,24 +7,24 @@
       <a-menu :selectedKeys="selectedKeys">
         <template v-for="item in dropMenuList" :key="`${item.event}`">
           <a-menu-item
-            :disabled="item.disabled"
             v-bind="getAttr(item.event)"
             @click="handleClickMenu(item)"
+            :disabled="item.disabled"
           >
             <a-popconfirm
               v-if="popconfirm && item.popConfirm"
               v-bind="getPopConfirmAttrs(item.popConfirm)"
             >
-              <template v-if="item.popConfirm.icon" #icon>
+              <template #icon v-if="item.popConfirm.icon">
                 <Icon :icon="item.popConfirm.icon" />
               </template>
               <div>
-                <Icon v-if="item.icon" :icon="item.icon" />
+                <Icon :icon="item.icon" v-if="item.icon" />
                 <span class="ml-1">{{ item.text }}</span>
               </div>
             </a-popconfirm>
             <template v-else>
-              <Icon v-if="item.icon" :icon="item.icon" />
+              <Icon :icon="item.icon" v-if="item.icon" />
               <span class="ml-1">{{ item.text }}</span>
             </template>
           </a-menu-item>

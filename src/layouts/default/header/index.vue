@@ -6,34 +6,34 @@
       <AppLogo
         v-if="getShowHeaderLogo || getIsMobile"
         :class="`${prefixCls}-logo`"
-        :style="getLogoWidth"
         :theme="getHeaderTheme"
+        :style="getLogoWidth"
       />
       <LayoutTrigger
         v-if="
           (getShowContent && getShowHeaderTrigger && !getSplit && !getIsMixSidebar) || getIsMobile
         "
-        :sider="false"
         :theme="getHeaderTheme"
+        :sider="false"
       />
       <LayoutBreadcrumb v-if="getShowContent && getShowBread" :theme="getHeaderTheme" />
     </div>
     <!-- left end -->
 
     <!-- menu start -->
-    <div v-if="getShowTopMenu && !getIsMobile" :class="`${prefixCls}-menu`">
+    <div :class="`${prefixCls}-menu`" v-if="getShowTopMenu && !getIsMobile">
       <LayoutMenu
         :isHorizontal="true"
-        :menuMode="getMenuMode"
-        :splitType="getSplitType"
         :theme="getHeaderTheme"
+        :splitType="getSplitType"
+        :menuMode="getMenuMode"
       />
     </div>
     <!-- menu-end -->
 
     <!-- action  -->
     <div :class="`${prefixCls}-action`">
-      <AppSearch v-if="getShowSearch" :class="`${prefixCls}-action__item `" />
+      <AppSearch :class="`${prefixCls}-action__item `" v-if="getShowSearch" />
 
       <ErrorAction v-if="getUseErrorHandle" :class="`${prefixCls}-action__item error-action`" />
 
@@ -43,9 +43,9 @@
 
       <AppLocalePicker
         v-if="getShowLocalePicker"
-        :class="`${prefixCls}-action__item`"
         :reload="true"
         :showText="false"
+        :class="`${prefixCls}-action__item`"
       />
 
       <UserDropDown :theme="getHeaderTheme" />

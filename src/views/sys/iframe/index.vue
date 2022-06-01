@@ -1,10 +1,10 @@
 <template>
   <div :class="prefixCls" :style="getWrapStyle">
-    <Spin :spinning="loading" :style="getWrapStyle" size="large">
+    <Spin :spinning="loading" size="large" :style="getWrapStyle">
       <iframe
-        ref="frameRef"
-        :class="`${prefixCls}__main`"
         :src="frameSrc"
+        :class="`${prefixCls}__main`"
+        ref="frameRef"
         @load="hideLoading"
       ></iframe>
     </Spin>

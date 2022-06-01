@@ -1,10 +1,10 @@
 <template>
   <div>
     <Space>
-      <a-button preIcon="carbon:cloud-upload" type="primary" @click="openUploadModal">
+      <a-button type="primary" @click="openUploadModal" preIcon="carbon:cloud-upload">
         {{ t('component.upload.upload') }}
       </a-button>
-      <Tooltip v-if="showPreview" placement="bottom">
+      <Tooltip placement="bottom" v-if="showPreview">
         <template #title>
           {{ t('component.upload.uploaded') }}
           <template v-if="fileList.length">
@@ -20,18 +20,18 @@
       </Tooltip>
     </Space>
     <UploadModal
-      :previewFileList="fileList"
       v-bind="bindValue"
+      :previewFileList="fileList"
+      @register="registerUploadModal"
       @change="handleChange"
       @delete="handleDelete"
-      @register="registerUploadModal"
     />
 
     <UploadPreviewModal
       :value="fileList"
-      @delete="handlePreviewDelete"
       @register="registerPreviewModal"
       @list-change="handlePreviewChange"
+      @delete="handlePreviewDelete"
     />
   </div>
 </template>

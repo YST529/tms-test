@@ -1,15 +1,15 @@
 <template>
   <BasicTable
-    :rowSelection="{ type: 'checkbox', selectedRowKeys: checkedKeys, onChange: onSelectChange }"
     @register="registerTable"
+    :rowSelection="{ type: 'checkbox', selectedRowKeys: checkedKeys, onChange: onSelectChange }"
   >
     <template #form-custom> custom-slot </template>
     <template #headerTop>
-      <a-alert show-icon type="info">
+      <a-alert type="info" show-icon>
         <template #message>
           <template v-if="checkedKeys.length > 0">
             <span>已选中{{ checkedKeys.length }}条记录(可跨页)</span>
-            <a-button size="small" type="link" @click="checkedKeys = []">清空</a-button>
+            <a-button type="link" @click="checkedKeys = []" size="small">清空</a-button>
           </template>
           <template v-else>
             <span>未选中任何项目</span>

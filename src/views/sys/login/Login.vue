@@ -1,11 +1,11 @@
 <template>
   <div :class="prefixCls" class="relative w-full h-full px-4">
     <AppLocalePicker
-      v-if="!sessionTimeout && showLocale"
-      :showText="false"
       class="absolute text-white top-4 right-4 enter-x xl:text-gray-600"
+      :showText="false"
+      v-if="!sessionTimeout && showLocale"
     />
-    <AppDarkModeToggle v-if="!sessionTimeout" class="absolute top-3 right-7 enter-x" />
+    <AppDarkModeToggle class="absolute top-3 right-7 enter-x" v-if="!sessionTimeout" />
 
     <span class="-enter-x xl:hidden">
       <AppLogo :alwaysShowTitle="true" />
@@ -18,8 +18,8 @@
           <div class="my-auto">
             <img
               :alt="title"
-              class="w-1/2 -mt-16 -enter-x"
               src="../../../assets/svg/login-box-bg.svg"
+              class="w-1/2 -mt-16 -enter-x"
             />
             <div class="mt-10 font-medium text-white -enter-x">
               <span class="inline-block mt-4 text-3xl"> {{ t('sys.login.signInTitle') }}</span>

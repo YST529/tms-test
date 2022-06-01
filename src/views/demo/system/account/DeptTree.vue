@@ -1,12 +1,12 @@
 <template>
   <div class="m-4 mr-0 overflow-hidden bg-white">
     <BasicTree
-      :clickRowToExpand="false"
-      :fieldNames="{ key: 'id', title: 'deptName' }"
-      :treeData="treeData"
-      search
       title="部门列表"
       toolbar
+      search
+      :clickRowToExpand="false"
+      :treeData="treeData"
+      :fieldNames="{ key: 'id', title: 'deptName' }"
       @select="handleSelect"
     />
   </div>

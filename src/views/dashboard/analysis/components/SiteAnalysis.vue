@@ -1,8 +1,8 @@
 <template>
   <Card
-    :active-tab-key="activeKey"
     :tab-list="tabListTitle"
     v-bind="$attrs"
+    :active-tab-key="activeKey"
     @tab-change="onTabChange"
   >
     <p v-if="activeKey === 'tab1'">

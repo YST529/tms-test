@@ -2,15 +2,15 @@
   <PageWrapper :class="prefixCls" title="标准列表">
     <div :class="`${prefixCls}__top`">
       <a-row :gutter="12">
-        <a-col :class="`${prefixCls}__top-col`" :span="8">
+        <a-col :span="8" :class="`${prefixCls}__top-col`">
           <div>我的待办</div>
           <p>8个任务</p>
         </a-col>
-        <a-col :class="`${prefixCls}__top-col`" :span="8">
+        <a-col :span="8" :class="`${prefixCls}__top-col`">
           <div>本周任务平均处理时间</div>
           <p>32分钟</p>
         </a-col>
-        <a-col :class="`${prefixCls}__top-col`" :span="8">
+        <a-col :span="8" :class="`${prefixCls}__top-col`">
           <div>本周完成任务数</div>
           <p>24个任务</p>
         </a-col>
@@ -23,11 +23,11 @@
           <a-list-item class="list">
             <a-list-item-meta>
               <template #avatar>
-                <Icon v-if="item.icon" :color="item.color" :icon="item.icon" class="icon" />
+                <Icon class="icon" v-if="item.icon" :icon="item.icon" :color="item.color" />
               </template>
               <template #title>
                 <span>{{ item.title }}</span>
-                <div v-if="item.extra" class="extra">
+                <div class="extra" v-if="item.extra">
                   {{ item.extra }}
                 </div>
               </template>
